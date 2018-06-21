@@ -1,0 +1,51 @@
+@media only screen and (max-width: 400px) {
+    .checks {
+        flex-wrap: wrap;
+    }
+}
+
+.title {
+    color: #000000;	
+    font-family: "Nunito", cursive;	
+    font-size: 3rem;	
+    font-weight: 500;
+}
+
+#role, #email, #location, #name, #type, #description, #company, #price-min, #price-max{
+    background: #D8D8D8;
+}
+
+#btn-post{
+    height: 5rem;	
+    width: 13rem;
+    font-size: 1.5rem;	
+    border-radius: 3rem;	
+    background: #F58B3B;
+    color: #ffffff;
+}
+
+.main {
+    background: #D8D8D8; 
+}
+
+.container label {
+    color: #000000;	
+    font-family: "Nunito", cursive;	
+    font-size: 1.5rem;	
+    font-weight: 500;	
+}
+
+#slider input {
+    background-color: #F58B3B;
+    color: white;
+}
+
+.form-div {
+    background-color: #ffffff; 
+}
+
+.form-div {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
