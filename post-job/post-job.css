@@ -1,3 +1,7 @@
+body {
+    background: #D8D8D8;
+}
+
 @media only screen and (max-width: 400px) {
     .checks {
         flex-wrap: wrap;
@@ -5,34 +9,38 @@
 }
 
 .title {
-    color: #000000;	
-    font-family: "Nunito", cursive;	
-    font-size: 3rem;	
+    color: #000000;
+    font-family: "Nunito", cursive;
+    font-size: 3rem;
     font-weight: 500;
 }
 
-#role, #email, #location, #name, #type, #description, #company, #price-min, #price-max{
+#role,
+#email,
+#location,
+#name,
+#type,
+#description,
+#company,
+#price-min,
+#price-max {
     background: #D8D8D8;
 }
 
-#btn-post{
-    height: 5rem;	
+#btn-post {
+    height: 5rem;
     width: 13rem;
-    font-size: 1.5rem;	
-    border-radius: 3rem;	
+    font-size: 1.5rem;
+    border-radius: 3rem;
     background: #F58B3B;
     color: #ffffff;
 }
 
-.main {
-    background: #D8D8D8; 
-}
-
 .container label {
-    color: #000000;	
-    font-family: "Nunito", cursive;	
-    font-size: 1.5rem;	
-    font-weight: 500;	
+    color: #000000;
+    font-family: "Nunito", cursive;
+    font-size: 1.5rem;
+    font-weight: 500;
 }
 
 #slider input {
@@ -40,8 +48,8 @@
     color: white;
 }
 
-.form-div {
-    background-color: #ffffff; 
+.container {
+    background-color: #ffffff;
 }
 
 .form-div {
