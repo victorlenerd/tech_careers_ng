@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Post Job | TechCareers</title>
+	<link rel="icon" type="image/jpg" href="../asset-img/title-icons.png">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../asset-css/styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Nunito|Playfair+Display" rel="stylesheet">
+</head>
+
+<body>
+	<!-- Navbar section -->
+	<nav class="navbar navbar-expand-lg fixed-top">
+		<a class="navbar-brand d-inline-flex flex-column justify-content-end text-white" href="#">
+			<span class="brand-one font-weight-bold">TechCareers</span>
+			<span class="brand-two">By NESA</span>
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+		  aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse justify-content-end" id="navbarText">
+			<ul class="navbar-nav">
+				<li class="nav-item mx-2 active">
+					<a class="nav-link text-white" href="index.html">Home
+						<span class="sr-only">(current)</span>
+					</a>
+				</li>
+				<li class="nav-item mx-2">
+					<a class="nav-link text-white" href="job-list.html">Jobs</a>
+				</li>
+				<li class="nav-item mx-2">
+					<a class="nav-link text-white" href="post-jobs.html">Post Jobs</a>
+				</li>
+				<li class="nav-item mx-2">
+					<a class="nav-link text-white" href="about.html">About</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Landing page section -->
+	<section class="landing-page-two">
+		<div class="text-center title">
+			<p>Post Job</p>
+		</div>
+		<div class="overlay-two"></div>
+	</section>
+
+	<div class="container">
+		<div class="row position-form rounded">
+			<div class="col-md-10 col-sm-12 offset-md-1 form-div rounded">
+				<form id="post-form" class=" border-0 px-4 pt-5">
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="name">Company Name</label>
+							<input type="text" class="form-control" id="name">
+						</div>
+						<div class="form-group col-md-6">
+							<label for="email">Email</label>
+							<input type="email" class="form-control" id="email">
+						</div>
+					</div>
+					<div class="form-row pt-4">
+						<div class="form-group col-md-6">
+							<label for="role">Role</label>
+							<input type="text" class="form-control" id="role" placeholder="Fullstack, Backend, Designer....">
+						</div>
+						<div class="form-group col-md-6">
+							<div id="slider" data-role="rangeslider">
+								<label for="min-price">Min-Price:</label>
+								<input class="slider" type="range" name="price-min" id="min-price" value="200" min="0" max="1000">
+								<label for="max-price">max-Price:</label>
+								<input class="slider" type="range" name="price-max" id="max-price" value="800" min="0" max="1000">
+							</div>
+						</div>
+					</div>
+					<div class="form-row pt-4">
+						<div class="col-md-4">
+							<label>Experience Level</label>
+						</div>
+						<div class="col-md-8 checks text-center">
+							<div class="row">
+								<div class="form-check form-check-inline col-md-4">
+									<input class="form-check-input checks" type="checkbox" id="junior" value="1">
+									<label class="form-check-label" for="inlineCheckbox1">Junior</label>
+								</div>
+								<div class="form-check form-check-inline col-md-4">
+									<input class="form-check-input" type="checkbox" id="Intermediate" value="2">
+									<label class="form-check-label" for="inlineCheckbox2">Intermediate</label>
+								</div>
+								<div class="form-check form-check-inline col-md-4">
+									<input class="form-check-input" type="checkbox" id="Senior" value="3">
+									<label class="form-check-label" for="inlineCheckbox3">Senior</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-row pt-4">
+						<div class="form-group col-md-6">
+							<label for="name">Type</label>
+							<input type="text" class="form-control" id="type" placeholder="Fulltime, Contract...">
+						</div>
+						<div class="form-group col-md-6">
+							<label for="location">Location</label>
+							<input type="text" class="form-control" id="location" placeholder="e.g Lagos, Kano, Enugu...">
+						</div>
+					</div>
+					<div class="form-row pt-4">
+						<div class="col-md-12">
+							<label for="description">Job Description</label>
+							<textarea type="text" class="form-control" id="description" rows="5"></textarea>
+						</div>
+					</div>
+					<div class=" form-row ">
+						<button type="submit" id="post-btn" class="large-button btn col-sm-4 offset-sm-8 my-3 text-white mx-auto">Post Job</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	  crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+	<script src="../asset-js/main.js"></script>
+</body>
