@@ -343,10 +343,10 @@ label {
     border-bottom: 1px solid #000000;
   }
   .job-title {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   .job-content {
-    font-size: 1rem;
+    font-size: 0.7rem;
   }
   .btn-div {
     width: 30%;
