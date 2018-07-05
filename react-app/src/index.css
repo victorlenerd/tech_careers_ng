@@ -1,5 +1,397 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+* {
+  outline: none;
+}
+
+html,
+body, 
+#root {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  font-family: 'Nunito', sans-serif;
+  background-color: #ffffff;
+}
+
+/* Landing page styles */
+
+.navbar {
+  background-color: rgba(66, 43, 22, 0.61);
+  opacity: 0.95;
+  box-shadow: 0 2px 20px 10px rgba(0, 0, 0, 0.17);
+}
+
+.navbar-toggler {
+  border: 1px solid #f58b3b;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#ffa64d' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.navbar-brand .brand-one {
+  font-size: 1.2rem;
+}
+
+.navbar-brand .brand-two {
+  display: inline-block;
+  font-size: 1rem;
+  text-align: right;
+  font-weight: 200;
+}
+
+.nav-link {
+  font-size: 1rem;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item.active::after,
+.nav-item:hover::after,
+.nav-item:active::after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background-color: #fff;
+  top: 100%;
+  right: 0.1%;
+  transition: all ease-in-out 300ms;
+}
+
+.landing-page {
+  /* position: relative; */
+  width: 100%;
+  height: 100vh;
+  background-image: url(./images/bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-page-two {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-image: url(./images/top-img.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-two {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(245, 139, 59, 0.4);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(245, 139, 59, 0.4);
+  z-index: 0;
+  color: #fff;
+}
+
+.landing-page-info {
+  max-width: 100%;
+  z-index: 2;
+}
+
+.discover-job h2 {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.3rem;
+}
+
+.discover-job h4 {
+  letter-spacing: 0.2rem;
+}
+
+.job-search {
+  width: 100%;
+  border-radius: 20px;
+  background-color: #ffffff;
+  box-shadow: 1px 3px 20px 15px rgba(0, 0, 0, 0.12);
+  margin-top: -60px;
+  position: relative;
+  padding: 10px 0px;
+  justify-content: space-around;
+}
+
+.control {
+  width: 90%;
+  display: block;
+  margin: 0px auto;
+  border-radius: 0px;
+  border: none;
+  border-bottom: 2px solid #000000;
+  font-size: 0.6rem;
+  height: 40px;
+}
+
+.search-btn {
+  border-radius: 100%;
+  height: 50px;
+  width: 100%;
+  color: #ffffff;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.8em !important;
+  letter-spacing: 0.82px;
+  border-radius: 2.5rem;
+  border: none;
+  background-color: #f58b3b;
+  box-shadow: 0 2px 16px 4px rgba(245, 139, 59, 0.5);
+  text-align: center;
+}
+
+.search-btn:hover {
+  background-color: rgba(223, 134, 58, 0.61);
+}
+
+/* End of landing page styles */
+
+/* Jobs Page */
+
+#jobs-page {
+  background: #fff;
+}
+
+.job-title {
+  font-size: 2rem;
+}
+
+.job-content {
+  font-size: 1.5rem;
+}
+
+.experience-level {
+  font-size: 1.3rem;
+}
+
+.text-color {
+  color: #f58b3b;
+  font-style: italic;
+}
+
+.badge {
+  background-color: #d8d8d8;
+  color: #000000;
+}
+
+.btn {
+  border-radius: 2.6rem;
+  background-color: #f58b3b;
+  color: white;
+  font-size: 1.25rem;
+}
+
+/* End of Jobs page */
+
+/* Post Jobs */
+
+#firstname,
+#lastname,
+#Email,
+#resume,
+#role,
+#email,
+#location,
+#name,
+#type,
+#company {
+  border-radius: 10px;
+  background-color: #d8d8d8;
+  height: 3.5rem;
+}
+
+#Bio,
+#description {
+  border-radius: 10px;
+  background: #d8d8d8;
+}
+
+/* input:focus {
+  outline: none;
+  
+} */
+
+.form-control:focus {
+  border-color: #f58b3b;
+  box-shadow: inset 1px 2px 2px rgba(245, 139, 59, 0.075), 0 0 8px rgba(245, 139, 59, 0.6);
+}
+
+label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 2.38px;
+  line-height: 32px;
+  color: #000000;
+}
+
+.large-button {
+  height: 5rem;
+  width: 9rem;
+  font-family: 'Nunito', sans-serif;
+  border-radius: 43px;
+  background-color: #f58b3b;
+  font-size: 1.3rem;
+  font-weight: 4rem;
+  letter-spacing: 2.38px;
+  line-height: 1.5rem;
+}
+
+.form-div {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 1.5rem;
+  background-color: #ffffff;
+}
+
+.title {
+  padding-top: 2rem;
+  color: #ffffff;
+  font-family: 'Nunito', cursive;
+  font-size: 2.5rem;
+  font-weight: 800;
+  z-index: 2;
+}
+
+.position-form {
+  margin-top: -4rem;
+}
+
+/* style for slider */
+
+.slider {
+  -webkit-appearance: none;
+  width: 60%;
+  height: 1rem;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.slider:hover {
+  opacity: 0.7;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #f58b3b;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #f58b3b;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 920px) {
+  .discover-job h2 {
+    font-size: 5vw;
+    text-align: center;
+    letter-spacing: normal;
+  }
+  .discover-job h4 {
+    font-size: 3vw;
+    letter-spacing: normal;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .landing-page {
+    padding-top: 170px;
+    justify-content: start;
+    align-items: center;
+  }
+  .job-search {
+    width: 100%;
+    border-radius: 0;
+    background-color: #ffffff;
+    box-shadow: 1px 3px 20px 15px rgba(0, 0, 0, 0.12);
+  }
+  .control {
+    height: 1.8rem;
+    border-bottom: 1px solid #000000;
+  }
+  .job-title {
+    font-size: 1rem;
+  }
+  .job-content {
+    font-size: 0.7rem;
+  }
+  .btn-div {
+    width: 30%;
+  }
+}
+
+.form-inline-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/**  
+  Changes after merge to master
+**/
+
+.main {
+  width: 100%;
+  height: 100%;
+}
+
+
+.main .jumbotron {
+  width: 100%;
+  height: 450px;
+  border-radius: 0px;
+  background-image: url(./images/landing-pic.jpg);
+  background-size: cover;
+  position: relative;
+  background-repeat: no-repeat;
+}
+
+
+.main .jumbotron .container {
+  padding-top: 80px;
+  position: relative;
+  text-align: center;
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.3rem;
+} 
+
+.main .jumbotron .container p {
+  letter-spacing: 0.2rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
 }
