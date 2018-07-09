@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Header from '../components/header';
 
 export default () => (
@@ -7,7 +8,7 @@ export default () => (
         <div className="jumbotron">
             <div className="overlay"></div>
             <div className="container">
-                <h1>Discover The Best Jobs<br />Oppurtunities In Tech.</h1>
+                <h1>Discover The Best Job<br />Oppurtunities In Tech.</h1>
                 <br />
                 <br />
                 <p>Tech careers is  platform for employers<br />and job seekers to find the <br />perfect match.</p>
