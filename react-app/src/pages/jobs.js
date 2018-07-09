@@ -1,21 +1,11 @@
-<<<<<<< HEAD
 import React from 'react';
+import Header from '../components/header';
 import NavTop from '../components/navTop';
-import Header from '../components/header';
-
-export default () => (
-  <div>
-    <Header />
-    <NavTop />
-  </div>
-);
-=======
-import React from 'react';
-import Header from '../components/header';
 
 export default () => (
     <div className="container">
         <Header />
+        <NavTop />
         <h3 className="font-weight-light mb-5">Recent Jobs</h3>
         <hr />
         <div className="d-flex flex-row justify-content-between align-items-center">
@@ -95,4 +85,3 @@ export default () => (
     </div>
 
 )
->>>>>>> eba2ddecc1c502cba7446fed7561d9aa32f37c01
