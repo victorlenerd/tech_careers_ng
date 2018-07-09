@@ -199,6 +199,18 @@ body,
   font-size: 1.25rem;
 }
 
+.accordion {
+  box-shadow: 0px 0px 40px -10px rgba(0, 0, 0, 0.34);
+}
+
+.card {
+  background: #fff !important;
+}
+
+.job-page-heading {
+  border-bottom: 2px solid #f58b3b;
+}
+
 /* End of Jobs page */
 
 /* Post Jobs */
@@ -231,7 +243,8 @@ body,
 
 .form-control:focus {
   border-color: #f58b3b;
-  box-shadow: inset 1px 2px 2px rgba(245, 139, 59, 0.075), 0 0 8px rgba(245, 139, 59, 0.6);
+  box-shadow: inset 1px 2px 2px rgba(245, 139, 59, 0.075),
+    0 0 8px rgba(245, 139, 59, 0.6);
 }
 
 label {
@@ -306,6 +319,21 @@ label {
   height: 25px;
   background: #f58b3b;
   cursor: pointer;
+}
+
+footer {
+  background: #ffffff;
+  border-top: 1px solid lightgrey;
+}
+.footer {
+  /* position: fixed; */
+  /* left: 0;
+  bottom: 0; */
+  width: 100%;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 990px) {
@@ -387,10 +415,6 @@ label {
 }
 
 .select-style {
-  /* border-bottom: 1.2px solid #000;
-  border-top: none;
-  border-right: none;
-  border-left: none; */
   border: none;
   border-radius: 3px;
   overflow: hidden;

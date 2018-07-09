@@ -1,9 +1,12 @@
 import React from 'react';
+
 import Header from '../components/header';
+import Footer from '../components/footer';
 
 export default () => (
   <section className="main">
     <Header />
+    <Footer />
     <div className="jumbotron">
       <div className="overlay" />
       <div className="container">
