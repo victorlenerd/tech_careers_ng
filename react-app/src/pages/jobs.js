@@ -1,9 +1,7 @@
 import React from 'react';
-
 import Header from '../components/header';
 
 export default () => (
-
     <div className="container">
         <Header />
         <h3 className="font-weight-light mb-5">Recent Jobs</h3>

@@ -10,18 +10,17 @@ class App extends Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     return (
       <BrowserRouter>
-      <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/jobs" component={Jobs} />
-        <Route exact path="/about" component={About} />
-        <Route path="/post" component={Post} />
-       
-
-      </Switch>
-    </BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/jobs" component={Jobs} />
+          <Route path="/about" component={About} />
+          <Route path="/post" component={Post} />
+        </Switch>
+      </BrowserRouter>
     );
   }
 }
