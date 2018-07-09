@@ -23,24 +23,28 @@ export default () => (
         <div className="col-sm-9 py-2">
           <div className="row">
             <select className="col-sm-3 select-style">
-              <option>Here is the first option</option>
-              <option>The second option</option>
-              <option>The third option</option>
+              <option>Type...</option>
+              <option>Fulltime</option>
+              <option>Part-time</option>
+              <option>Remote</option>
+              <option>Freelance</option>
             </select>
             <select className="col-sm-3 select-style">
-              <option>Here is the first option</option>
-              <option>The second option</option>
-              <option>The third option</option>
+              <option>Role...</option>
+              <option>Backend</option>
+              <option>Front-End</option>
+              <option>Full Stack</option>
             </select>
             <select className="col-sm-3 select-style">
-              <option>Here is the first option</option>
-              <option>The second option</option>
-              <option>The third option</option>
+              <option>Location...</option>
+              <option>Lagos</option>
+              <option>Abuja</option>
             </select>
             <select className="col-sm-3 select-style">
-              <option>Here is the first option</option>
-              <option>The second option</option>
-              <option>The third option</option>
+              <option>Experience...</option>
+              <option>Junior</option>
+              <option>Intermediate</option>
+              <option>Senior</option>
             </select>
           </div>
         </div>
