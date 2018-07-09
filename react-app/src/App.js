@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from 'react';
 
 import Home from './pages/home';
@@ -17,3 +18,33 @@ class App extends Component {
 }
 
 export default App;
+=======
+import React, { Component } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Home from './pages/home';
+import About from './pages/about';
+import Apply from './pages/apply';
+import Jobs from './pages/jobs';
+import Post from './pages/post';
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/jobs" component={Jobs} />
+          <Route path="/about" component={About} />
+          <Route path="/post" component={Post} />
+        </Switch>
+      </BrowserRouter>
+    );
+  }
+}
+
+export default App;
+>>>>>>> eba2ddecc1c502cba7446fed7561d9aa32f37c01
