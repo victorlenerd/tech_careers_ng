@@ -3,7 +3,7 @@
 }
 
 html,
-body, 
+body,
 #root {
   width: 100%;
   height: 100%;
@@ -15,7 +15,7 @@ body,
 /* Landing page styles */
 
 .navbar {
-  background-color: rgba(66, 43, 22, 0.61);
+  background-color: rgba(245, 139, 59, 0.4);
   opacity: 0.95;
   box-shadow: 0 2px 20px 10px rgba(0, 0, 0, 0.17);
 }
@@ -124,14 +124,12 @@ body,
 }
 
 .job-search {
-  width: 100%;
-  border-radius: 20px;
+  width: 90%;
+  margin-top: -50px;
+  border-radius: 2rem;
   background-color: #ffffff;
   box-shadow: 1px 3px 20px 15px rgba(0, 0, 0, 0.12);
-  margin-top: -60px;
   position: relative;
-  padding: 10px 0px;
-  justify-content: space-around;
 }
 
 .control {
@@ -201,6 +199,18 @@ body,
   font-size: 1.25rem;
 }
 
+.accordion {
+  box-shadow: 0px 0px 40px -10px rgba(0, 0, 0, 0.34);
+}
+
+.card {
+  background: #fff !important;
+}
+
+.job-page-heading {
+  border-bottom: 2px solid #f58b3b;
+}
+
 /* End of Jobs page */
 
 /* Post Jobs */
@@ -233,7 +243,8 @@ body,
 
 .form-control:focus {
   border-color: #f58b3b;
-  box-shadow: inset 1px 2px 2px rgba(245, 139, 59, 0.075), 0 0 8px rgba(245, 139, 59, 0.6);
+  box-shadow: inset 1px 2px 2px rgba(245, 139, 59, 0.075),
+    0 0 8px rgba(245, 139, 59, 0.6);
 }
 
 label {
@@ -310,19 +321,28 @@ label {
   cursor: pointer;
 }
 
-@media screen and (max-width: 920px) {
-  .discover-job h2 {
-    font-size: 5vw;
-    text-align: center;
-    letter-spacing: normal;
-  }
-  .discover-job h4 {
-    font-size: 3vw;
-    letter-spacing: normal;
+footer {
+  background: #ffffff;
+  border-top: 1px solid lightgrey;
+}
+.footer {
+  /* position: fixed; */
+  /* left: 0;
+  bottom: 0; */
+  width: 100%;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 990px) {
+  .job-search {
+    width: 96%;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .navbar {
     padding-top: 0;
     padding-bottom: 0;
@@ -334,7 +354,7 @@ label {
   }
   .job-search {
     width: 100%;
-    border-radius: 0;
+    border-radius: 3px;
     background-color: #ffffff;
     box-shadow: 1px 3px 20px 15px rgba(0, 0, 0, 0.12);
   }
@@ -343,10 +363,10 @@ label {
     border-bottom: 1px solid #000000;
   }
   .job-title {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
   .job-content {
-    font-size: 0.7rem;
+    font-size: 1rem;
   }
   .btn-div {
     width: 30%;
@@ -369,17 +389,15 @@ label {
   height: 100%;
 }
 
-
 .main .jumbotron {
   width: 100%;
-  height: 450px;
+  height: 550px;
   border-radius: 0px;
   background-image: url(./images/landing-pic.jpg);
   background-size: cover;
   position: relative;
   background-repeat: no-repeat;
 }
-
 
 .main .jumbotron .container {
   padding-top: 80px;
@@ -388,10 +406,22 @@ label {
   color: #fff;
   font-family: 'Playfair Display', serif;
   letter-spacing: 0.3rem;
-} 
+}
 
 .main .jumbotron .container p {
   letter-spacing: 0.2rem;
   font-family: 'Nunito', sans-serif;
   font-size: 22px;
+}
+
+.select-style {
+  border: none;
+  border-radius: 3px;
+  overflow: hidden;
+  background: #fff;
+  padding: 10px;
+}
+
+.select-style select:focus {
+  outline: none;
 }
