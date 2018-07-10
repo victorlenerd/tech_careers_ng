@@ -20,7 +20,7 @@ class Post extends Component {
                 </div>
                 <div className="form-row pt-4">
                   <div className="form-group col-md-6">
-                    <label htmlFor="role">Role</label>
+                    <label htmlFor="role">Rol</label>
                     <input
                       type="text"
                       className="form-control"
