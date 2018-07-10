@@ -218,7 +218,7 @@ body,
 #firstname,
 #lastname,
 #Email,
-#resume,
+#cv,
 #role,
 #email,
 #location,
@@ -230,7 +230,7 @@ body,
   height: 3.5rem;
 }
 
-#Bio,
+#resume,
 #description {
   border-radius: 10px;
   background: #d8d8d8;
