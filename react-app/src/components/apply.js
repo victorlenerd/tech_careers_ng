@@ -25,8 +25,8 @@ class Apply extends Component {
                                     <input type="email" className="form-control " id="Email" />
                                 </div>
                                 <div className="form-group col-md-6 col-sm-12  pt-4">
-                                    <label for="resume">Upload CV</label>
-                                    <input type="file" className="form-control " id="CV" />
+                                    <label for="cv">Upload CV</label>
+                                    <input type="file" className="form-control " id="cv" style="background: #d8d8d8" />
                                 </div>
 
 
