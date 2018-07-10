@@ -52,7 +52,7 @@ class Post extends Component {
                   </div>
                   <div className="form-group col-md-6">
                     <div id="slider" >
-                      <label htmlFor="min-price">Min & Max Salary</label>
+                      <label htmlFor="min-price">Min & Max Salary (NGN)</label>
                       <br />
                       <input
                         className="slider"
