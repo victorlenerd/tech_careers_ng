@@ -4,24 +4,83 @@ class Post extends Component {
   constructor(){
     super();
     this.state = {
+      companyName: '',
+      email: '',
+      role:'',
+      experienceLevel: "",
       minPrice: 0,
-      maxPrice: 0
+      maxPrice: 0,
+      jobType: '',
+      location: '',
+      jobDescription: ''
     }
   }
 
-  handleChangeMinPrice = (e)=> {
-   let xmin = e.target.value;
-    this.setState(() =>({
-      minPrice: xmin
-    }));
+  //populating the state with form inputs
+  //min price
+  handleChangeMinPrice = (e) => {
+    this.setState({
+      minPrice: e.target.value
+    });
   };
+  //max price
+  handleChangeMaxPrice = (e) => {
+    this.setState({
+      maxPrice: e.target.value
+    });
+  };
+  //company name
+  inputCompanyName = (e) => {
+    this.setState({
+      companyName: e.target.value
+    });
+  }
+  //company email
+  inputCompanyEmail = (e) => {
+    this.setState({
+      email: e.target.value
+    });
+  }
+  //role
+  inputRole = (e) => {
+    this.setState({
+      role: e.target.value
+    });
+  }
+  //job type
+  inputJobType = (e) => {
+    this.setState({
+      jobType: e.target.value
+    });
+  }
+  //Location
+  inputLocation = (e) => {
+    this.setState({
+      location: e.target.value
+    });
+  }
+  //JobDescription
+  inputDescription = (e) => {
+    this.setState({
+      jobDescription: e.target.value
+    });
+  }
 
-  handleChangeMaxPrice = (e)=> {
-    let xmax = e.target.value;
-     this.setState(() =>({
-       maxPrice: xmax
-     }));
-   };
+//experience level
+experienceSelect = (e) => {
+  let level = [0];
+  level.concat(e.target.value);
+  console.log(level);
+  
+  }
+
+
+  //Button Post
+  onPostJob = (e) => {
+    e.preventDefault();
+    console.log(this.state);
+  }
+
 
   render() {
     return (
@@ -29,15 +88,15 @@ class Post extends Component {
         <div className="container mb-5">
           <div className="row position-form rounded">
             <div className="col-md-10 col-sm-12 offset-md-1 form-div rounded">
-              <form id="post-form" className=" border-0 px-4 pt-5">
+              <form id="post-form" className=" border-0 px-4 pt-5" onSubmit= {this.onPostJob}>
                 <div className="form-row">
                   <div className="form-group col-md-6">
                     <label htmlFor="name">Company Name</label>
-                    <input type="text" className="form-control" id="name" />
+                    <input type="text" className="form-control" name="name" id="name" onChange={this.inputCompanyName} />
                   </div>
                   <div className="form-group col-md-6">
                     <label htmlFor="email">Email</label>
-                    <input type="email" className="form-control" id="email" />
+                    <input type="email" name="email" className="form-control" id="email" onChange={this.inputCompanyEmail} />
                   </div>
                 </div>
                 <div className="form-row pt-4">
@@ -48,6 +107,7 @@ class Post extends Component {
                       className="form-control"
                       id="role"
                       placeholder="Fullstack, Backend, Designer...."
+                      onChange = {this.inputRole}
                     />
                   </div>
                   <div className="form-group col-md-6">
@@ -91,6 +151,7 @@ class Post extends Component {
                           type="checkbox"
                           id="junior"
                           value="1"
+                          onChange= {this.experienceSelect}
                         />
                         <label
                           className="form-check-label"
@@ -104,6 +165,7 @@ class Post extends Component {
                           type="checkbox"
                           id="Intermediate"
                           value="2"
+                          onChange= {this.experienceSelect}
                         />
                         <label
                           className="form-check-label"
@@ -117,6 +179,7 @@ class Post extends Component {
                           type="checkbox"
                           id="Senior"
                           value="3"
+                          onChange= {this.experienceSelect}
                         />
                         <label
                           className="form-check-label"
@@ -135,6 +198,7 @@ class Post extends Component {
                       className="form-control"
                       id="type"
                       placeholder="Fulltime, Contract..."
+                      onChange = {this.inputJobType}
                     />
                   </div>
                   <div className="form-group col-md-6">
@@ -144,6 +208,7 @@ class Post extends Component {
                       className="form-control"
                       id="location"
                       placeholder="e.g Lagos, Kano, Enugu..."
+                      onChange={this.inputLocation}
                     />
                   </div>
                 </div>
@@ -155,6 +220,7 @@ class Post extends Component {
                       className="form-control"
                       id="description"
                       rows="5"
+                      onChange= {this.inputDescription}
                     />
                   </div>
                 </div>
