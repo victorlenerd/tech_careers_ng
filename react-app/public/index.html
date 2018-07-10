@@ -27,6 +27,22 @@
 
 
   <title>Tech Careers</title>
+
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyB89s5uWdjEmdsJEGpybXiXJDRPfK1Css0",
+      authDomain: "react-app-f6b64.firebaseapp.com",
+      databaseURL: "https://react-app-f6b64.firebaseio.com",
+      projectId: "react-app-f6b64",
+      storageBucket: "react-app-f6b64.appspot.com",
+      messagingSenderId: "1080852047044"
+    };
+    firebase.initializeApp(config);
+    const db = firebase.firestore();
+    db.setting({ timestampInSnapshots: true });
+  </script>
 </head>
 
 <body>
