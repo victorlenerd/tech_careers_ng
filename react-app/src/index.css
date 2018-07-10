@@ -256,6 +256,15 @@ label {
   color: #000000;
 }
 
+.price {
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 2.38px;
+  line-height: 32px;
+  color: #000000;
+}
+
 .large-button {
   height: 5rem;
   width: 9rem;
@@ -312,6 +321,7 @@ label {
   height: 25px;
   background: #f58b3b;
   cursor: pointer;
+  border-radius: 50%;
 }
 
 .slider::-moz-range-thumb {
@@ -319,6 +329,7 @@ label {
   height: 25px;
   background: #f58b3b;
   cursor: pointer;
+  border-radius: 50%;
 }
 
 footer {
