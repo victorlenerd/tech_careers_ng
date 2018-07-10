@@ -1,6 +1,28 @@
 import React, { Component } from 'react';
 
 class Post extends Component {
+  constructor(){
+    super();
+    this.state = {
+      minPrice: 0,
+      maxPrice: 0
+    }
+  }
+
+  handleChangeMinPrice = (e)=> {
+   let xmin = e.target.value;
+    this.setState(() =>({
+      minPrice: xmin
+    }));
+  };
+
+  handleChangeMaxPrice = (e)=> {
+    let xmax = e.target.value;
+     this.setState(() =>({
+       maxPrice: xmax
+     }));
+   };
+
   render() {
     return (
       <div>
@@ -29,27 +51,31 @@ class Post extends Component {
                     />
                   </div>
                   <div className="form-group col-md-6">
-                    <div id="slider" data-role="rangeslider">
-                      <label htmlFor="min-price">Min-Price:</label>
+                    <div id="slider" >
+                      <label htmlFor="min-price">Min & Max Salary (NGN)</label>
+                      <br />
                       <input
                         className="slider"
                         type="range"
                         name="price-min"
                         id="min-price"
-                        value="200"
                         min="0"
                         max="1000"
+                        onChange = { this.handleChangeMinPrice }
                       />
-                      <label htmlFor="max-price">max-Price:</label>
+                      <span className="price">{this.state.minPrice}K</span>
+
+                      <br />
                       <input
                         className="slider"
                         type="range"
                         name="price-max"
                         id="max-price"
-                        value="800"
                         min="0"
                         max="1000"
+                        onChange = { this.handleChangeMaxPrice }
                       />
+                      <span className="price">{this.state.maxPrice}K</span>
                     </div>
                   </div>
                 </div>
