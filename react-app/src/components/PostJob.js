@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import Header from './header';
 
 class PostJob extends Component {
+constructor(props){
+	super(props);
+}
+
   render() {
     return (
       <div>
@@ -29,7 +33,7 @@ class PostJob extends Component {
 						<div className="form-group col-md-6">
 							<div id="slider" data-role="rangeslider">
 								<label for="min-price">Min-Price:</label>
-								<input className="slider" type="range" name="price-min" id="min-price" value="200" min="0" max="1000" />
+								<input className="slider" type="range" name="price-min" id="min-price" value="500" min="0" max="1000" />
 								<label for="max-price">max-Price:</label>
 								<input className="slider" type="range" name="price-max" id="max-price" value="800" min="0" max="1000" />
 							</div>
