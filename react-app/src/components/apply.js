@@ -42,21 +42,21 @@ class Apply extends Component {
 
               <div className="form-row">
                 <div className="form-group col-md-6 col-sm-12 pt-4">
-                  <label for="email">Email</label>
+                  <label htmlFor="email">Email</label>
                   <input type="email" className="form-control " id="Email" />
                 </div>
                 <div className="form-group col-md-6 col-sm-12  pt-4">
-                  <label for="cv">Upload CV</label>
+                  <label htmlFor="cv">Upload CV</label>
                   <input
                     type="file"
                     className="form-control "
                     id="cv"
-                    style="background: #d8d8d8"
+                    style={background}
                   />
                 </div>
               </div>
               <div className=" form-group form-row  pt-4">
-                <label for="resume">Cover Letter</label>
+                <label htmlFor="resume">Cover Letter</label>
                 <textarea
                   className="form-control"
                   rows="6"

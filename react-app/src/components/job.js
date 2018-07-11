@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
 class Job extends Component {
   render() {
@@ -77,9 +78,9 @@ class Job extends Component {
                 </div>
                 <div className="row mt-5">
                   <div className="col-xs-6 col-sm-4 col-md-2 offset-xs-2 offset-md-5 offset-sm-4">
-                    <a href="#" role="button" className="btn btn-block">
+                    <NavLink to="/apply" role="button" className="btn btn-block">
                       Apply
-                </a>
+                </NavLink>
                   </div>
                 </div>
               </div>
