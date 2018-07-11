@@ -224,6 +224,7 @@ body,
 #location,
 #name,
 #type,
+#chips,
 #company {
   border-radius: 10px;
   background-color: #d8d8d8;
