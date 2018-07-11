@@ -5,15 +5,8 @@ class Post extends Component {
   constructor(){
     super();
     this.state = {
-      companyName: '',
-      email: '',
-      role:'',
-      experienceLevel: "",
       minPrice: 0,
       maxPrice: 0,
-      jobType: '',
-      location: '',
-      jobDescription: '',
       experienceJunior:false,
       experienceIntermediate: false,
       experienceSenior: false,
@@ -54,6 +47,7 @@ class Post extends Component {
   //Button Post
   onPostJob = (e) => {
     e.preventDefault();
+    let jobTitle = e.target.jobTitle.value.trim();
     let companyName = e.target.name.value.trim();
     let email = e.target.email.value.trim();
     let role = e.target.role.value.trim();
@@ -61,20 +55,9 @@ class Post extends Component {
     let location = e.target.location.value.trim();
     let jobDescription = e.target.description.value.trim();
 
-  
+    // console.log(companyName, email, role, jobType, location, jobDescription, jobTitle, this.state);
     
     
-    this.setState(prevstate => ({
-      companyName: prevstate.companyName = companyName,
-      email: prevstate.email = email,
-      role: prevstate.role = role,
-      jobType: prevstate.jobType = jobType,
-      location: prevstate.location = location,
-      jobDescription: prevstate.jobDescription = jobDescription
-    }), () => {
-      console.log(this.state);
-    });
-   
    e.target.reset();
   }
 
@@ -86,24 +69,37 @@ class Post extends Component {
           <div className="row position-form rounded">
             <div className="col-md-10 col-sm-12 offset-md-1 form-div rounded">
               <form id="post-form" className=" border-0 px-4 pt-5" onSubmit={this.onPostJob} >
+                    <label htmlFor="email">Job Title</label>
+                    <input type="text" name="jobTitle" className="form-control" id="job-title" />
                 <div className="form-row">
                   <div className="form-group col-md-6">
                     <label htmlFor="name">Company Name</label>
-                    <input type="text" className="form-control" name="name" id="name"  />
+                    <input type="text" 
+                    className="form-control" 
+                    name="name" 
+                    id="name" 
+                    required 
+                    />
                   </div>
                   <div className="form-group col-md-6">
                     <label htmlFor="email">Email</label>
-                    <input type="email" name="email" className="form-control" id="email" />
+                    <input type="email" 
+                    name="email" 
+                    className="form-control" 
+                    id="email" 
+                    required
+                    />
                   </div>
                 </div>
                 <div className="form-row pt-4">
                   <div className="form-group col-md-6">
-                    <label htmlFor="role">Rol</label>
+                    <label htmlFor="role">Role</label>
                     <input
                       type="text"
                       className="form-control"
                       id="role"
                       placeholder="Fullstack, Backend, Designer...."
+                      required
                     />
                   </div>
                   <div className="form-group col-md-6">
@@ -118,6 +114,7 @@ class Post extends Component {
                         onChange = {this.handleChangeMinPrice}
                         min="0"
                         max="1000"
+                        required
                       />
                       <span className="price">{this.state.minPrice}K</span>
 
@@ -129,6 +126,7 @@ class Post extends Component {
                         id="max-price"
                         min="0"
                         max="1000"
+                        required
                         onChange = {this.handleChangeMaxPrice}
                       />
                       <span className="price">{this.state.maxPrice}K</span>
@@ -149,6 +147,7 @@ class Post extends Component {
                           value="experienceJunior"
                           onChange = {this.handleCheckChange}
                           name="experienceJunior"
+                          required
                         />
                         <label
                           className="form-check-label"
@@ -164,6 +163,7 @@ class Post extends Component {
                           value="experienceIntermediate"
                           name="experienceIntermediate"
                           onChange = {this.handleCheckChange}
+                          required
                         />
                         <label
                           className="form-check-label"
@@ -179,6 +179,7 @@ class Post extends Component {
                           value="experienceSenior"
                           name="experienceSenior"
                           onChange = {this.handleCheckChange}
+                          required
                         />
                         <label
                           className="form-check-label"
@@ -198,6 +199,7 @@ class Post extends Component {
                       id="type"
                       placeholder="Fulltime, Contract..."
                       name="jobType"
+                      required
                     />
                   </div>
                   <div className="form-group col-md-6">
@@ -208,6 +210,7 @@ class Post extends Component {
                       id="location"
                       name ="location"
                       placeholder="e.g Lagos, Kano, Enugu..."
+                      required
                     />
                   </div>
                 </div>
@@ -219,6 +222,7 @@ class Post extends Component {
                       className="form-control"
                       id="description"
                       rows="5"
+                      required
                     />
                   </div>
                 </div>
