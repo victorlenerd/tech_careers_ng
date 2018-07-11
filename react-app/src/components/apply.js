@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { firebase, db } from '../util/firebase';
 
 class Apply extends Component {
   render() {

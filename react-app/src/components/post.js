@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
 import Chips, { Chip } from 'react-chips';
+import { firebase, db } from '../util/firebase';
 
 class Post extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
       companyName: '',
       email: '',
-      role:'',
-      experienceLevel: "",
+      role: '',
+      experienceLevel: '',
       minPrice: 0,
       maxPrice: 0,
       jobType: '',
       location: '',
       jobDescription: '',
-      experienceJunior:false,
+      experienceJunior: false,
       experienceIntermediate: false,
       experienceSenior: false,
-      chips: []
-    }
+      chips: [],
+      createdAt: 0
+    };
   }
 
   //populating the state with form inputs
@@ -35,21 +37,23 @@ class Post extends Component {
     });
   };
 
- handleCheckChange =(e) =>{
-   let name = e.target.name;
-   let value = e.target.value;
+  handleCheckChange = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
 
-   this.setState({
-     [name]: !this.state[name]
-   }, () => {
-     console.log(this.state);
-     
-   })
- }
+    this.setState(
+      {
+        [name]: !this.state[name]
+      }
+      // () => {
+      //   console.log(this.state);
+      // }
+    );
+  };
 
- onChangeChips = (chips) => {
-  this.setState({ chips });
-}
+  onChangeChips = (chips) => {
+    this.setState({ chips });
+  };
 
   //Button Post
   onPostJob = (e) => {
@@ -61,23 +65,44 @@ class Post extends Component {
     let location = e.target.location.value.trim();
     let jobDescription = e.target.description.value.trim();
 
-  
-    
-    
-    this.setState(prevstate => ({
-      companyName: prevstate.companyName = companyName,
-      email: prevstate.email = email,
-      role: prevstate.role = role,
-      jobType: prevstate.jobType = jobType,
-      location: prevstate.location = location,
-      jobDescription: prevstate.jobDescription = jobDescription
-    }), () => {
-      console.log(this.state);
-    });
-   
-   e.target.reset();
-  }
+    this.setState(
+      (prevstate) => ({
+        companyName: (prevstate.companyName = companyName),
+        email: (prevstate.email = email),
+        role: (prevstate.role = role),
+        jobType: (prevstate.jobType = jobType),
+        location: (prevstate.location = location),
+        jobDescription: (prevstate.jobDescription = jobDescription)
+      }),
+      () => {
+        console.log('This final information', this.state);
+        db.collection('jobs')
+          .add({
+            companyName: this.state.companyName,
+            email: this.state.email,
+            experienceJunior: this.state.experienceJunior,
+            experienceIntermediate: this.state.experienceIntermediate,
+            experienceSenior: this.state.experienceSenior,
+            jobDescription: this.state.jobDescription,
+            location: this.state.location,
+            maxPrice: this.state.maxPrice,
+            minPrice: this.state.minPrice,
+            role: this.state.role,
+            chips: this.state.chips,
+            jobType: this.state.jobType,
+            createdAt: new Date()
+          })
+          .then((docRef) => {
+            console.log('Document written with ID: ', docRef.id);
+          })
+          .catch((error) => {
+            console.error('Error adding document: ', error);
+          });
+      }
+    );
 
+    e.target.reset();
+  };
 
   render() {
     return (
@@ -85,20 +110,33 @@ class Post extends Component {
         <div className="container mb-5">
           <div className="row position-form rounded">
             <div className="col-md-10 col-sm-12 offset-md-1 form-div rounded">
-              <form id="post-form" className=" border-0 px-4 pt-5" onSubmit={this.onPostJob} >
+              <form
+                id="post-form"
+                className=" border-0 px-4 pt-5"
+                onSubmit={this.onPostJob}>
                 <div className="form-row">
                   <div className="form-group col-md-6">
                     <label htmlFor="name">Company Name</label>
-                    <input type="text" className="form-control" name="name" id="name"  />
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="name"
+                      id="name"
+                    />
                   </div>
                   <div className="form-group col-md-6">
                     <label htmlFor="email">Email</label>
-                    <input type="email" name="email" className="form-control" id="email" />
+                    <input
+                      type="email"
+                      name="email"
+                      className="form-control"
+                      id="email"
+                    />
                   </div>
                 </div>
                 <div className="form-row pt-4">
                   <div className="form-group col-md-6">
-                    <label htmlFor="role">Rol</label>
+                    <label htmlFor="role">Role</label>
                     <input
                       type="text"
                       className="form-control"
@@ -107,7 +145,7 @@ class Post extends Component {
                     />
                   </div>
                   <div className="form-group col-md-6">
-                    <div id="slider" >
+                    <div id="slider">
                       <label htmlFor="min-price">Min & Max Salary (NGN)</label>
                       <br />
                       <input
@@ -115,7 +153,7 @@ class Post extends Component {
                         type="range"
                         name="minPrice"
                         id="min-price"
-                        onChange = {this.handleChangeMinPrice}
+                        onChange={this.handleChangeMinPrice}
                         min="0"
                         max="1000"
                       />
@@ -129,7 +167,7 @@ class Post extends Component {
                         id="max-price"
                         min="0"
                         max="1000"
-                        onChange = {this.handleChangeMaxPrice}
+                        onChange={this.handleChangeMaxPrice}
                       />
                       <span className="price">{this.state.maxPrice}K</span>
                     </div>
@@ -147,7 +185,7 @@ class Post extends Component {
                           type="checkbox"
                           id="junior"
                           value="experienceJunior"
-                          onChange = {this.handleCheckChange}
+                          onChange={this.handleCheckChange}
                           name="experienceJunior"
                         />
                         <label
@@ -163,7 +201,7 @@ class Post extends Component {
                           id="Intermediate"
                           value="experienceIntermediate"
                           name="experienceIntermediate"
-                          onChange = {this.handleCheckChange}
+                          onChange={this.handleCheckChange}
                         />
                         <label
                           className="form-check-label"
@@ -178,7 +216,7 @@ class Post extends Component {
                           id="Senior"
                           value="experienceSenior"
                           name="experienceSenior"
-                          onChange = {this.handleCheckChange}
+                          onChange={this.handleCheckChange}
                         />
                         <label
                           className="form-check-label"
@@ -206,7 +244,7 @@ class Post extends Component {
                       type="text"
                       className="form-control"
                       id="location"
-                      name ="location"
+                      name="location"
                       placeholder="e.g Lagos, Kano, Enugu..."
                     />
                   </div>
@@ -228,7 +266,7 @@ class Post extends Component {
                   id="chips"
                   value={this.state.chips}
                   onChange={this.onChangeChips}
-                  suggestions={["javascript", "Data", "fulltime"]}
+                  suggestions={['javascript', 'Data', 'fulltime']}
                 />
 
                 <div className=" form-row ">
