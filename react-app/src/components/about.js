@@ -17,63 +17,78 @@ export default () => (
           </p>
         </div>
       </div>
+
       <h1 className="text-center">The Team</h1>
+
       <div className="row">
-        <div className="col-md-3 col-sm-6 pt-2 text-center">
+        <div className="col-lg-3 col-md-6 pt-2 text-center">
           <div className="card shadow">
-            <img className="card-img-top" height="200" src={ppp} alt="Card" />
+            <img className="card-img-top" src={ppp} alt="Card" />
             <div className="card-body">
-              <h5 className="card-title">Yemisi Segun</h5>
+              <h5 className="card-title">
+                Okwukwe Ewurum <br />
+                <span className="text-color font-weight-bold">Team Lead</span>
+              </h5>
               <p className="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </p>
-              <a href="#" className="btn text-white">
+              <a
+                href="https://www.linkedin.com/in/okwukwe-ewurum-1625a338/"
+                className="btn text-white">
                 LinkedIn
               </a>
             </div>
           </div>
         </div>
-        <div className="col-md-3 col-sm-6 pt-2 text-center">
+
+        <div className="col-lg-3 col-md-6 pt-2 text-center">
           <div className="card shadow">
-            <img className="card-img-top" height="200" src={ppp} alt="Card" />
+            <img className="card-img-top" src={ppp} alt="Card" />
             <div className="card-body">
-              <h5 className="card-title">Yemisi Segun</h5>
+              <h5 className="card-title">Temilola Kutelu</h5>
               <p className="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </p>
-              <a href="#" className="btn text-white">
+              <a
+                href="https://www.linkedin.com/in/temilola-kutelu-714761a4/"
+                className="btn text-white">
                 LinkedIn
               </a>
             </div>
           </div>
         </div>
-        <div className="col-md-3 col-sm-6 pt-2 text-center">
+
+        <div className="col-lg-3 col-md-6 pt-2 text-center">
           <div className="card shadow">
-            <img className="card-img-top" height="200" src={ppp} alt="Card" />
+            <img className="card-img-top" src={ppp} alt="Card" />
             <div className="card-body">
-              <h5 className="card-title">Yemisi Segun</h5>
+              <h5 className="card-title">Lucky Amadi</h5>
               <p className="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </p>
-              <a href="#" className="btn text-white">
+              <a
+                href="https://www.linkedin.com/in/lucky-amadi-40408b41/"
+                className="btn text-white">
                 LinkedIn
               </a>
             </div>
           </div>
         </div>
-        <div className="col-md-3 col-sm-6 pt-2 text-center">
+        <div className="col-lg-3 col-md-6 pt-2 text-center">
           <div className="card shadow">
-            <img className="card-img-top" height="200" src={ppp} alt="Card" />
+            <img className="card-img-top" src={ppp} alt="Card" />
             <div className="card-body">
-              <h5 className="card-title">Yemisi Segun</h5>
+              <h5 className="card-title">Pelumi Adebayo</h5>
               <p className="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </p>
-              <a href="#" className="btn text-white">
+              <a
+                href="https://www.linkedin.com/in/adepelumi/"
+                className="btn text-white">
                 LinkedIn
               </a>
             </div>
