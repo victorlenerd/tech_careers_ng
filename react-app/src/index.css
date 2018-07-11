@@ -438,3 +438,7 @@ footer {
 .select-style select:focus {
   outline: none;
 }
+
+.bg-body {
+  background: #d8d8d8;
+}

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Chips, { Chip } from 'react-chips';
+import { firebase, db } from '../util/firebase';
 
 class Post extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
       minPrice: 0,
@@ -10,8 +11,9 @@ class Post extends Component {
       experienceJunior:false,
       experienceIntermediate: false,
       experienceSenior: false,
-      chips: []
-    }
+      chips: [],
+      createdAt: 0
+    };
   }
 
   //populating the state with form inputs
@@ -28,27 +30,30 @@ class Post extends Component {
     });
   };
 
- handleCheckChange =(e) =>{
-   let name = e.target.name;
-   let value = e.target.value;
+  handleCheckChange = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
 
-   this.setState({
-     [name]: !this.state[name]
-   }, () => {
-     console.log(this.state);
-     
-   })
- }
+    this.setState(
+      {
+        [name]: !this.state[name]
+      }
+      // () => {
+      //   console.log(this.state);
+      // }
+    );
+  };
 
- onChangeChips = (chips) => {
-  this.setState({ chips });
-}
+  onChangeChips = (chips) => {
+    this.setState({ chips });
+  };
 
   //Button Post
   onPostJob = (e) => {
     e.preventDefault();
     let jobTitle = e.target.jobTitle.value.trim();
     let companyName = e.target.name.value.trim();
+    let jobtitle = e.target.jobtitle.value.trim();
     let email = e.target.email.value.trim();
     let role = e.target.role.value.trim();
     let jobType = e.target.jobType.value.trim();
@@ -60,6 +65,7 @@ class Post extends Component {
     
    e.target.reset();
   }
+
 
 
   render() {
@@ -103,7 +109,7 @@ class Post extends Component {
                     />
                   </div>
                   <div className="form-group col-md-6">
-                    <div id="slider" >
+                    <div id="slider">
                       <label htmlFor="min-price">Min & Max Salary (NGN)</label>
                       <br />
                       <input
@@ -111,7 +117,7 @@ class Post extends Component {
                         type="range"
                         name="minPrice"
                         id="min-price"
-                        onChange = {this.handleChangeMinPrice}
+                        onChange={this.handleChangeMinPrice}
                         min="0"
                         max="1000"
                         required
@@ -145,7 +151,7 @@ class Post extends Component {
                           type="checkbox"
                           id="junior"
                           value="experienceJunior"
-                          onChange = {this.handleCheckChange}
+                          onChange={this.handleCheckChange}
                           name="experienceJunior"
                           required
                         />
@@ -208,7 +214,7 @@ class Post extends Component {
                       type="text"
                       className="form-control"
                       id="location"
-                      name ="location"
+                      name="location"
                       placeholder="e.g Lagos, Kano, Enugu..."
                       required
                     />
@@ -232,7 +238,7 @@ class Post extends Component {
                   id="chips"
                   value={this.state.chips}
                   onChange={this.onChangeChips}
-                  suggestions={["javascript", "Data", "fulltime"]}
+                  suggestions={['javascript', 'Data', 'fulltime']}
                 />
 
                 <div className=" form-row ">
