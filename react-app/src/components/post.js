@@ -4,24 +4,74 @@ class Post extends Component {
   constructor(){
     super();
     this.state = {
+      companyName: '',
+      email: '',
+      role:'',
+      experienceLevel: "",
       minPrice: 0,
-      maxPrice: 0
+      maxPrice: 0,
+      jobType: '',
+      location: '',
+      jobDescription: '',
+      experienceJunior:false,
+      experienceIntermediate: false,
+      experienceSenior: false
     }
   }
 
-  handleChangeMinPrice = (e)=> {
-   let xmin = e.target.value;
-    this.setState(() =>({
-      minPrice: xmin
-    }));
+  //populating the state with form inputs
+  //min price
+  handleChangeMinPrice = (e) => {
+    this.setState({
+      minPrice: e.target.value
+    });
+  };
+  //max price
+  handleChangeMaxPrice = (e) => {
+    this.setState({
+      maxPrice: e.target.value
+    });
   };
 
-  handleChangeMaxPrice = (e)=> {
-    let xmax = e.target.value;
-     this.setState(() =>({
-       maxPrice: xmax
-     }));
-   };
+ handleCheckChange =(e) =>{
+   let name = e.target.name;
+   let value = e.target.value;
+
+   this.setState({
+     [name]: !this.state[name]
+   }, () => {
+     console.log(this.state);
+     
+   })
+ }
+
+  //Button Post
+  onPostJob = (e) => {
+    e.preventDefault();
+    let companyName = e.target.name.value.trim();
+    let email = e.target.email.value.trim();
+    let role = e.target.role.value.trim();
+    let jobType = e.target.jobType.value.trim();
+    let location = e.target.location.value.trim();
+    let jobDescription = e.target.description.value.trim();
+
+  
+    
+    
+    this.setState(prevstate => ({
+      companyName: prevstate.companyName = companyName,
+      email: prevstate.email = email,
+      role: prevstate.role = role,
+      jobType: prevstate.jobType = jobType,
+      location: prevstate.location = location,
+      jobDescription: prevstate.jobDescription = jobDescription
+    }), () => {
+      console.log(this.state);
+    });
+   
+   e.target.reset();
+  }
+
 
   render() {
     return (
@@ -29,15 +79,15 @@ class Post extends Component {
         <div className="container mb-5">
           <div className="row position-form rounded">
             <div className="col-md-10 col-sm-12 offset-md-1 form-div rounded">
-              <form id="post-form" className=" border-0 px-4 pt-5">
+              <form id="post-form" className=" border-0 px-4 pt-5" onSubmit={this.onPostJob} >
                 <div className="form-row">
                   <div className="form-group col-md-6">
                     <label htmlFor="name">Company Name</label>
-                    <input type="text" className="form-control" id="name" />
+                    <input type="text" className="form-control" name="name" id="name"  />
                   </div>
                   <div className="form-group col-md-6">
                     <label htmlFor="email">Email</label>
-                    <input type="email" className="form-control" id="email" />
+                    <input type="email" name="email" className="form-control" id="email" />
                   </div>
                 </div>
                 <div className="form-row pt-4">
@@ -57,11 +107,11 @@ class Post extends Component {
                       <input
                         className="slider"
                         type="range"
-                        name="price-min"
+                        name="minPrice"
                         id="min-price"
+                        onChange = {this.handleChangeMinPrice}
                         min="0"
                         max="1000"
-                        onChange = { this.handleChangeMinPrice }
                       />
                       <span className="price">{this.state.minPrice}K</span>
 
@@ -69,11 +119,11 @@ class Post extends Component {
                       <input
                         className="slider"
                         type="range"
-                        name="price-max"
+                        name="maxPrice"
                         id="max-price"
                         min="0"
                         max="1000"
-                        onChange = { this.handleChangeMaxPrice }
+                        onChange = {this.handleChangeMaxPrice}
                       />
                       <span className="price">{this.state.maxPrice}K</span>
                     </div>
@@ -90,7 +140,9 @@ class Post extends Component {
                           className="form-check-input checks"
                           type="checkbox"
                           id="junior"
-                          value="1"
+                          value="experienceJunior"
+                          onChange = {this.handleCheckChange}
+                          name="experienceJunior"
                         />
                         <label
                           className="form-check-label"
@@ -103,7 +155,9 @@ class Post extends Component {
                           className="form-check-input"
                           type="checkbox"
                           id="Intermediate"
-                          value="2"
+                          value="experienceIntermediate"
+                          name="experienceIntermediate"
+                          onChange = {this.handleCheckChange}
                         />
                         <label
                           className="form-check-label"
@@ -116,7 +170,9 @@ class Post extends Component {
                           className="form-check-input"
                           type="checkbox"
                           id="Senior"
-                          value="3"
+                          value="experienceSenior"
+                          name="experienceSenior"
+                          onChange = {this.handleCheckChange}
                         />
                         <label
                           className="form-check-label"
@@ -129,12 +185,13 @@ class Post extends Component {
                 </div>
                 <div className="form-row pt-4">
                   <div className="form-group col-md-6">
-                    <label htmlFor="name">Type</label>
+                    <label htmlFor="type">Type</label>
                     <input
                       type="text"
                       className="form-control"
                       id="type"
                       placeholder="Fulltime, Contract..."
+                      name="jobType"
                     />
                   </div>
                   <div className="form-group col-md-6">
@@ -143,6 +200,7 @@ class Post extends Component {
                       type="text"
                       className="form-control"
                       id="location"
+                      name ="location"
                       placeholder="e.g Lagos, Kano, Enugu..."
                     />
                   </div>
