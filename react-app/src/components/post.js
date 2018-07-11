@@ -7,6 +7,7 @@ class Post extends Component {
     super();
     this.state = {
       companyName: '',
+      jobtitle: '',
       email: '',
       role: '',
       experienceLevel: '',
@@ -59,6 +60,7 @@ class Post extends Component {
   onPostJob = (e) => {
     e.preventDefault();
     let companyName = e.target.name.value.trim();
+    let jobtitle = e.target.jobtitle.value.trim();
     let email = e.target.email.value.trim();
     let role = e.target.role.value.trim();
     let jobType = e.target.jobType.value.trim();
@@ -68,6 +70,7 @@ class Post extends Component {
     this.setState(
       (prevstate) => ({
         companyName: (prevstate.companyName = companyName),
+        jobtitle: (prevstate.jobtitle = jobtitle),
         email: (prevstate.email = email),
         role: (prevstate.role = role),
         jobType: (prevstate.jobType = jobType),
@@ -79,6 +82,7 @@ class Post extends Component {
         db.collection('jobs')
           .add({
             companyName: this.state.companyName,
+            jobtitle: this.state.jobtitle,
             email: this.state.email,
             experienceJunior: this.state.experienceJunior,
             experienceIntermediate: this.state.experienceIntermediate,
@@ -122,6 +126,13 @@ class Post extends Component {
                       className="form-control"
                       name="name"
                       id="name"
+                    />
+                    <label htmlFor="name">Job Title</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="jobtitle"
+                      id="jobtitle"
                     />
                   </div>
                   <div className="form-group col-md-6">
