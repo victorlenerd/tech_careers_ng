@@ -66,13 +66,13 @@ class Post extends Component {
     });
   }
 
-//experience level
-experienceSelect = (e) => {
-  let level = [0];
-  level.concat(e.target.value);
-  console.log(level);
+// //experience level
+// experienceSelect = (e) => {
+//   let level = [];
+//   level.concat(e.target.value);
+//   console.log(level);
   
-  }
+//   }
 
 
   //Button Post
