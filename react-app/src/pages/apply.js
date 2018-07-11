@@ -6,10 +6,10 @@ import Apply from '../components/apply';
 import Footer from '../components/footer';
 
 export default () => (
-    <div>
-        <Header />
-        <NavTop />
-        <Apply />
-        <Footer />
-    </div>
+  <div className="bg-body">
+    <Header />
+    <NavTop title="Apply" />
+    <Apply />
+    <Footer />
+  </div>
 );

@@ -6,9 +6,9 @@ import Post from '../components/post';
 import Footer from '../components/footer';
 
 export default () => (
-  <div>
+  <div className="bg-body">
     <Header />
-    <NavTop />
+    <NavTop title="Post Job" />
     <Post />
     <Footer />
   </div>

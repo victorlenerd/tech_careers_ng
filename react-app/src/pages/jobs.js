@@ -8,7 +8,7 @@ import Footer from '../components/footer';
 export default () => (
   <div>
     <Header />
-    <NavTop />
+    <NavTop title="Jobs" />
     <h1 className="job-page-heading font-weight-light m-5">Availabe Jobs</h1>
     <Job />
     <Footer />
