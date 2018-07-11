@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Chips, { Chip } from 'react-chips';
 
 class Post extends Component {
   constructor(){
@@ -15,7 +16,8 @@ class Post extends Component {
       jobDescription: '',
       experienceJunior:false,
       experienceIntermediate: false,
-      experienceSenior: false
+      experienceSenior: false,
+      chips: []
     }
   }
 
@@ -23,13 +25,13 @@ class Post extends Component {
   //min price
   handleChangeMinPrice = (e) => {
     this.setState({
-      minPrice: e.target.value
+      minPrice: +e.target.value
     });
   };
   //max price
   handleChangeMaxPrice = (e) => {
     this.setState({
-      maxPrice: e.target.value
+      maxPrice: +e.target.value
     });
   };
 
@@ -44,6 +46,10 @@ class Post extends Component {
      
    })
  }
+
+ onChangeChips = (chips) => {
+  this.setState({ chips });
+}
 
   //Button Post
   onPostJob = (e) => {
@@ -216,6 +222,15 @@ class Post extends Component {
                     />
                   </div>
                 </div>
+                <br />
+                <label htmlFor="chips">Tags</label>
+                <Chips
+                  id="chips"
+                  value={this.state.chips}
+                  onChange={this.onChangeChips}
+                  suggestions={["javascript", "Data", "fulltime"]}
+                />
+
                 <div className=" form-row ">
                   <button
                     type="submit"
