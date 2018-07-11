@@ -23,13 +23,13 @@ class Post extends Component {
   //min price
   handleChangeMinPrice = (e) => {
     this.setState({
-      minPrice: e.target.value
+      minPrice: +e.target.value
     });
   };
   //max price
   handleChangeMaxPrice = (e) => {
     this.setState({
-      maxPrice: e.target.value
+      maxPrice: +e.target.value
     });
   };
 
