@@ -6,9 +6,9 @@ import About from '../components/about';
 import Footer from '../components/footer';
 
 export default () => (
-  <div>
+  <div className="bg-body">
     <Header />
-    <NavTop />
+    <NavTop title="About Us" />
     <About />
     <Footer />
   </div>

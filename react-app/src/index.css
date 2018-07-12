@@ -224,6 +224,8 @@ body,
 #location,
 #name,
 #type,
+#job-title,
+#chips,
 #company {
   border-radius: 10px;
   background-color: #d8d8d8;
@@ -435,4 +437,8 @@ footer {
 
 .select-style select:focus {
   outline: none;
+}
+
+.bg-body {
+  background: #d8d8d8;
 }

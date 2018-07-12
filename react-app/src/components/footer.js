@@ -6,7 +6,7 @@ export default () => (
   <footer className="fixed-bottom pt-2">
     <div className="footer">
       <h3>
-        Made by
+        Made with
         <span className="mx-1">
           <img src={heart} alt="foot-icon" />
         </span>

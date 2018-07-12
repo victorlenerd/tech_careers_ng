@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "firebase": "^5.2.0",
+    "mailgun-js": "^0.20.0",
     "rc-slider": "^8.6.1",
     "react": "^16.4.1",
+    "react-chips": "^0.6.4",
     "react-dom": "^16.4.1",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",

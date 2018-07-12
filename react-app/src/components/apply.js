@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+const background = {
+    background: '#d8d8d8'
+};
 class Apply extends Component {
     state = {
         firstName: '',
@@ -32,10 +35,10 @@ class Apply extends Component {
     uploadFile = (event) => {
         let resume = event.target.files[0].name;
         console.log(resume);
-        if (file) {
-            let data = new FormData();
-            data.append('file', file);
-        }
+        // if (file) {
+        //     let data = new FormData();
+        //     data.append('file', file);
+        // }
     }
 
     render() {
@@ -65,7 +68,7 @@ class Apply extends Component {
                                 </div>
                                 <div className="form-group col-md-6 col-sm-12  pt-4">
                                     <label htmlFor="cv">Upload Resume</label>
-                                    <input type="file" className="form-control " id="cv" name='resume' accept=".pdf,.doc" onChange={this.uploadFile} required />
+                                    <input type="file" className="form-control " id="cv" name='resume' accept=".pdf,.doc" onChange={this.uploadFile} required style={background} />
                                 </div>
                             </div>
                             <div className=" form-group form-row  pt-4">
@@ -74,14 +77,13 @@ class Apply extends Component {
                             </div>
 
                             <div className=" form-row ">
-                                <button id="apply-btn" className="large-button btn col-sm-4 offset-sm-8 my-3 text-white mx-auto">Apply</button>
+                                <button type="submit" id="apply-btn" className="large-button btn col-sm-4 offset-sm-8 my-3 text-white mx-auto">Apply</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         );
-    }
-}
-
+    };
+};
 export default Apply;
