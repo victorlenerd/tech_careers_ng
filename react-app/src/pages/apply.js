@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Header from '../components/header';
 import NavTop from '../components/navTop';
 import Apply from '../components/apply';

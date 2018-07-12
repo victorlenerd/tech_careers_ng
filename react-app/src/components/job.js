@@ -1,4 +1,7 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import Apply from '../components/apply';
+
 
 export default () => (
   <div className="container my-5">
@@ -76,9 +79,9 @@ export default () => (
             </div>
             <div className="row mt-5">
               <div className="col-xs-6 col-sm-4 col-md-2 offset-xs-2 offset-md-5 offset-sm-4">
-                <a href="#" role="button" className="btn btn-block">
+                <NavLink to='/apply' rcdole="button" className="btn btn-block">
                   Apply
-                </a>
+                  </NavLink>
               </div>
             </div>
           </div>
