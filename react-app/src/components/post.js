@@ -8,11 +8,12 @@ class Post extends Component {
     this.state = {
       minPrice: 0,
       maxPrice: 0,
-      experienceJunior:false,
+      experienceJunior: false,
       experienceIntermediate: false,
       experienceSenior: false,
       chips: [],
-      createdAt: 0
+      createdAt: 0,
+      jobTitle: ''
     };
   }
 
@@ -53,7 +54,6 @@ class Post extends Component {
     e.preventDefault();
     let jobTitle = e.target.jobTitle.value.trim();
     let companyName = e.target.name.value.trim();
-    let jobtitle = e.target.jobtitle.value.trim();
     let email = e.target.email.value.trim();
     let role = e.target.role.value.trim();
     let jobType = e.target.jobType.value.trim();
@@ -61,12 +61,9 @@ class Post extends Component {
     let jobDescription = e.target.description.value.trim();
 
     // console.log(companyName, email, role, jobType, location, jobDescription, jobTitle, this.state);
-    
-    
-   e.target.reset();
-  }
 
-
+    e.target.reset();
+  };
 
   render() {
     return (
@@ -74,26 +71,37 @@ class Post extends Component {
         <div className="container mb-5">
           <div className="row position-form rounded">
             <div className="col-md-10 col-sm-12 offset-md-1 form-div rounded">
-              <form id="post-form" className=" border-0 px-4 pt-5" onSubmit={this.onPostJob} >
-                    <label htmlFor="email">Job Title</label>
-                    <input type="text" name="jobTitle" className="form-control" id="job-title" />
+              <form
+                id="post-form"
+                className=" border-0 px-4 pt-5"
+                onSubmit={this.onPostJob}>
+                <label htmlFor="email">Job Title</label>
+                <input
+                  type="text"
+                  name="jobTitle"
+                  className="form-control"
+                  id="job-title"
+                  placeholder="Senior Front-end Engineer"
+                />
                 <div className="form-row">
                   <div className="form-group col-md-6">
                     <label htmlFor="name">Company Name</label>
-                    <input type="text" 
-                    className="form-control" 
-                    name="name" 
-                    id="name" 
-                    required 
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="name"
+                      id="name"
+                      required
                     />
                   </div>
                   <div className="form-group col-md-6">
                     <label htmlFor="email">Email</label>
-                    <input type="email" 
-                    name="email" 
-                    className="form-control" 
-                    id="email" 
-                    required
+                    <input
+                      type="email"
+                      name="email"
+                      className="form-control"
+                      id="email"
+                      required
                     />
                   </div>
                 </div>
@@ -133,7 +141,7 @@ class Post extends Component {
                         min="0"
                         max="1000"
                         required
-                        onChange = {this.handleChangeMaxPrice}
+                        onChange={this.handleChangeMaxPrice}
                       />
                       <span className="price">{this.state.maxPrice}K</span>
                     </div>
@@ -168,7 +176,7 @@ class Post extends Component {
                           id="Intermediate"
                           value="experienceIntermediate"
                           name="experienceIntermediate"
-                          onChange = {this.handleCheckChange}
+                          onChange={this.handleCheckChange}
                           required
                         />
                         <label
@@ -184,7 +192,7 @@ class Post extends Component {
                           id="Senior"
                           value="experienceSenior"
                           name="experienceSenior"
-                          onChange = {this.handleCheckChange}
+                          onChange={this.handleCheckChange}
                           required
                         />
                         <label
