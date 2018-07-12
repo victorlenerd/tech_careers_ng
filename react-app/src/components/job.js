@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import moment from 'moment';
 
 export default (props) => {
-  console.log('props------', props);
+  const start = moment(new Date(props.job.createdAt.seconds * 1000));
+  const now = moment(new Date());
+  console.log('from job --->', start.from(now, true));
   return (
     <div className="container my-5">
-      <div className="accordion mt-3" id="accordionExample">
+      <div className="accordion mt-3" id="jobAccordion">
         <div className="card">
           <div className="card-header" id={props.job.email}>
             <div className="d-flex flex-row justify-content-between align-items-center">
-              <h5 className="font-weight-bold job-title">
-                {props.job.jobTitie}
+              <h5 className="font-weight-bold job-title text-capitalize">
+                {props.job.jobTitle}
               </h5>
-              <h5>3d</h5>
+              <h5>{start.from(now, true)}</h5>
             </div>
-            <div className="job-content d-inline-flex justify-content-start mt-2">
-              <span className="job-location">
+            <div className="job-content d-flex justify-content-sm-start mt-2">
+              <span className="job-location text-capitalize">
                 {props.job.companyName} - {props.job.location}
               </span>
-              <span className="text-color job-price ml-5">
+              <span className="text-color job-price">
                 {props.job.minPrice}K - {props.job.maxPrice}K
               </span>
             </div>
@@ -29,7 +32,7 @@ export default (props) => {
                 return (
                   <span
                     key={i}
-                    className="badge badge-pill badge-secondary mr-3">
+                    className="badge badge-pill badge-secondary text-capitalize mr-3">
                     {chip}
                   </span>
                 );
@@ -51,7 +54,7 @@ export default (props) => {
             id={props.job.id}
             className="collapse"
             aria-labelledby={props.job.id}
-            data-parent="#accordionExample">
+            data-parent="#jobAccordion">
             <div className="card-body">
               <h5 className="card-title"> Your Responsibilities:</h5>
               <div className="card-text">

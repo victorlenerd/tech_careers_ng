@@ -20,7 +20,6 @@ class Jobs extends Component {
       .then((docs) => {
         console.log(docs);
         docs.forEach((doc) => {
-          console.log(doc.id, ' => ', doc.data());
           this.setState({
             jobs: this.state.jobs.concat({ id: doc.id, ...doc.data() })
           });
@@ -29,11 +28,11 @@ class Jobs extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="pb-5">
         <Header />
         <NavTop title={'Jobs'} />
         <h1 className="job-page-heading font-weight-light m-5">
-          Availabe Jobs
+          <div className="container">Availabe Jobs</div>
         </h1>
         {this.state.jobs.map((job, i) => {
           return <Job job={job} key={i} />;

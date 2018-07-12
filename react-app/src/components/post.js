@@ -21,28 +21,22 @@ class Post extends Component {
   //min price
   handleChangeMinPrice = (e) => {
     this.setState({
-      minPrice: +e.target.value
+      minPrice: e.target.value
     });
   };
   //max price
   handleChangeMaxPrice = (e) => {
     this.setState({
-      maxPrice: +e.target.value
+      maxPrice: e.target.value
     });
   };
 
   handleCheckChange = (e) => {
-    let name = e.target.name;
-    let value = e.target.value;
+    const name = e.target.name;
 
-    this.setState(
-      {
-        [name]: !this.state[name]
-      }
-      // () => {
-      //   console.log(this.state);
-      // }
-    );
+    this.setState({
+      [name]: !this.state[name]
+    });
   };
 
   onChangeChips = (chips) => {
@@ -52,15 +46,38 @@ class Post extends Component {
   //Button Post
   onPostJob = (e) => {
     e.preventDefault();
-    let jobTitle = e.target.jobTitle.value.trim();
-    let companyName = e.target.name.value.trim();
-    let email = e.target.email.value.trim();
-    let role = e.target.role.value.trim();
-    let jobType = e.target.jobType.value.trim();
-    let location = e.target.location.value.trim();
-    let jobDescription = e.target.description.value.trim();
+    const jobTitle = e.target.jobTitle.value.trim();
+    const companyName = e.target.name.value.trim();
+    const email = e.target.email.value.trim();
+    const role = e.target.role.value.trim();
+    const jobType = e.target.jobType.value.trim();
+    const location = e.target.location.value.trim();
+    const jobDescription = e.target.description.value.trim();
 
     // console.log(companyName, email, role, jobType, location, jobDescription, jobTitle, this.state);
+    db.collection('jobs')
+      .add({
+        companyName,
+        email,
+        jobDescription,
+        location,
+        role,
+        jobType,
+        jobTitle,
+        experienceJunior: this.state.experienceJunior,
+        experienceIntermediate: this.state.experienceIntermediate,
+        experienceSenior: this.state.experienceSenior,
+        maxPrice: this.state.maxPrice,
+        minPrice: this.state.minPrice,
+        chips: this.state.chips,
+        createdAt: new Date()
+      })
+      .then((docRef) => {
+        console.log('Document written with ID: ', docRef.id);
+      })
+      .catch((error) => {
+        console.error('Error adding document: ', error);
+      });
 
     e.target.reset();
   };
@@ -81,7 +98,7 @@ class Post extends Component {
                   name="jobTitle"
                   className="form-control"
                   id="job-title"
-                  placeholder="Senior Front-end Engineer"
+                  placeholder=" Senior Frontend Engineer"
                 />
                 <div className="form-row">
                   <div className="form-group col-md-6">
@@ -161,7 +178,6 @@ class Post extends Component {
                           value="experienceJunior"
                           onChange={this.handleCheckChange}
                           name="experienceJunior"
-                          required
                         />
                         <label
                           className="form-check-label"
@@ -177,7 +193,6 @@ class Post extends Component {
                           value="experienceIntermediate"
                           name="experienceIntermediate"
                           onChange={this.handleCheckChange}
-                          required
                         />
                         <label
                           className="form-check-label"
@@ -193,7 +208,6 @@ class Post extends Component {
                           value="experienceSenior"
                           name="experienceSenior"
                           onChange={this.handleCheckChange}
-                          required
                         />
                         <label
                           className="form-check-label"
