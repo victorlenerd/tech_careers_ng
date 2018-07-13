@@ -2,11 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 
+// const path = require('path'); //module for generating file path in node
+let port = process.env.PORT | 5555;
+
 const app = express();
 
-// const port = process.env.PORT | 5555 ;
-
-// Static folder
 
 // Body Parser Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -44,7 +44,13 @@ app.post('/apply', (req, res) => {
       from: '"Tech Careers NG" <techcareers@techbuzz.com.ng>', // sender address
       to: req.body.to, // list of receivers
       subject: 'Application',
-      html: output 
+      html: output,
+      // attachments: [
+      //       {   // file on disk as an attachment
+      //         filename: 'attachment.txt',
+      //         path: 'C:\Users\User2\Desktop\NESA\group project\tech_careers_ng\email-service' // stream this file
+      //     },
+      // ] 
   };
 
   // send mail with defined transport object
@@ -60,4 +66,4 @@ app.post('/apply', (req, res) => {
         res.send(req.body); //display sent mail
   });
 
-app.listen(5555, () => console.log(`Server started on....`));
+app.listen(port, () => console.log(`Server started on....${port}`));
