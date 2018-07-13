@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 
-const background = {
-  background: '#d8d8d8'
-};
 
 class Apply extends Component {
   submit = (event) => {
@@ -59,7 +56,7 @@ class Apply extends Component {
                   />
                 </div>
                 <div className="form-group col-md-6 col-sm-12  pt-4">
-                  <label htmlFor="cv">Upload CV</label>
+                  <label for="cv">Upload CV</label>
                   <input
                     type="file"
                     className="form-control "
@@ -67,7 +64,7 @@ class Apply extends Component {
                     name="resume"
                     accept=".pdf,.doc"
                     onChange={this.uploadFile}
-                    style={background}
+                    // style={background}
                   />
                 </div>
               </div>
