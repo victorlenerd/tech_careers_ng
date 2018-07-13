@@ -4,6 +4,7 @@ import Header from '../components/header';
 import NavTop from '../components/navTop';
 import Job from '../components/job';
 import Footer from '../components/footer';
+import JobFilter from '../components/jobFilter';
 import { db } from '../util/firebase';
 
 class Jobs extends Component {
@@ -16,6 +17,7 @@ class Jobs extends Component {
   }
   componentWillMount() {
     db.collection('jobs')
+      .orderBy('createdAt', 'desc')
       .get()
       .then((docs) => {
         console.log(docs);
@@ -28,12 +30,12 @@ class Jobs extends Component {
   }
   render() {
     return (
-      <div className="pb-5">
+      <div className="jobs">
         <Header />
-        <NavTop title={'Jobs'} />
-        <h1 className="job-page-heading font-weight-light m-5">
-          <div className="container">Availabe Jobs</div>
-        </h1>
+        <NavTop title={'Available Jobs'} />
+        <div className="container mb-5">
+          <JobFilter />
+        </div>
         {this.state.jobs.map((job, i) => {
           return <Job job={job} key={i} />;
         })}

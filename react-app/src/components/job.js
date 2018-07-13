@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import moment from 'moment';
 
@@ -7,7 +7,7 @@ export default (props) => {
   const now = moment(new Date());
   console.log('from job --->', start.from(now, true));
   return (
-    <div className="container my-5">
+    <div className="container mb-2">
       <div className="accordion mt-3" id="jobAccordion">
         <div className="card">
           <div className="card-header" id={props.job.email}>
@@ -17,11 +17,11 @@ export default (props) => {
               </h5>
               <h5>{start.from(now, true)}</h5>
             </div>
-            <div className="job-content d-flex justify-content-sm-start mt-2">
+            <div className="job-content d-flex justify-content-sm-start justify-content-md-between mt-2">
               <span className="job-location text-capitalize">
                 {props.job.companyName} - {props.job.location}
               </span>
-              <span className="text-color job-price">
+              <span className=" text-color job-price text-right">
                 {props.job.minPrice}K - {props.job.maxPrice}K
               </span>
             </div>

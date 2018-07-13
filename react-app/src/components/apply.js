@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 class Apply extends Component {
   submit = (event) => {
     event.preventDefault();
@@ -56,7 +55,7 @@ class Apply extends Component {
                   />
                 </div>
                 <div className="form-group col-md-6 col-sm-12  pt-4">
-                  <label for="cv">Upload CV</label>
+                  <label htmlFor="cv">Upload CV</label>
                   <input
                     type="file"
                     className="form-control "
