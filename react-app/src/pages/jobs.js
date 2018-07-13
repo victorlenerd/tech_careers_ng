@@ -12,34 +12,34 @@ class Jobs extends Component {
 
     this.state = {
       jobs: []
-    }
+    };
   }
   componentWillMount() {
-    db.collection("jobs").get()
+    db.collection('jobs')
+      .get()
       .then((docs) => {
         console.log(docs);
         docs.forEach((doc) => {
-          console.log(doc.id, " => ", doc.data());
           this.setState({
-            jobs: this.state.jobs.concat(doc.data())
-          })
+            jobs: this.state.jobs.concat({ id: doc.id, ...doc.data() })
+          });
         });
       });
   }
   render() {
     return (
-      <div>
+      <div className="pb-5">
         <Header />
-        <NavTop title ={"Jobs"}/>
-        <h1 className="job-page-heading font-weight-light m-5">Availabe Jobs</h1>
+        <NavTop title={'Jobs'} />
+        <h1 className="job-page-heading font-weight-light m-5">
+          <div className="container">Availabe Jobs</div>
+        </h1>
         {this.state.jobs.map((job, i) => {
-          return (
-            <Job job={job} key={i} />
-          )
+          return <Job job={job} key={i} />;
         })}
         <Footer />
       </div>
-    )
+    );
   }
 }
 
