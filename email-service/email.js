@@ -9,6 +9,11 @@ const app = express();
 
 
 // Body Parser Middleware
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -42,7 +47,7 @@ app.post('/apply', (req, res) => {
   // setup email data with unicode symbols
   let mailOptions = {
       from: '"Tech Careers NG" <techcareers@techbuzz.com.ng>', // sender address
-      to: req.body.to, // list of receivers
+      to: 'transamadi.lucky@gmail.com', // list of receivers
       subject: 'Application',
       html: output,
       // attachments: [
@@ -56,7 +61,7 @@ app.post('/apply', (req, res) => {
   // send mail with defined transport object
   transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-          return console.log(error);
+          return console.log("Email could not be sent", error);
       }
       console.log('Message sent: %s', info.messageId);   
       console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
