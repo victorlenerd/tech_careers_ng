@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import { firebase, db } from '../util/firebase';
 
-const background = {
-  background: '#d8d8d8'
-};
 
 class Apply extends Component {
   render() {
@@ -11,40 +7,56 @@ class Apply extends Component {
       <div className="container">
         <div className="row position-form">
           <div className="col-md-10 offset-md-1 col-sm-12 form-div rounded">
-            <form id="apply-form" className="border-0 px-5 ">
+            <form id="apply-form" className="border-0 px-5" onSubmit={ this.onApply } >
               <div className="form-row pt-4">
                 <div className="form-group col-md-6 col-sm-12 pt-4">
-                  <label htmlFor="firstname">First Name</label>
-                  <input type="text" className="form-control  " id="firstname" />
+                  <label for="firstname">First Name</label>
+                  <input
+                    type="text"
+                    className="form-control  "
+                    id="firstname"
+                    name="firstName"
+                  />
                 </div>
 
                 <div className="form-group col-md-6 col-sm-12  pt-4">
-                  <label htmlFor="lastname">Last Name</label>
-                  <input type="text" className="form-control " id="lastname" />
+                  <label for="lastname">Last Name</label>
+                  <input 
+                  type="text" 
+                  className="form-control " 
+                  id="lastname" 
+                  name="lastName"
+                  />
                 </div>
               </div>
 
               <div className="form-row">
                 <div className="form-group col-md-6 col-sm-12 pt-4">
-                  <label htmlFor="email">Email</label>
-                  <input type="email" className="form-control " id="Email" />
+                  <label for="email">Email</label>
+                  <input 
+                  type="email" 
+                  className="form-control" 
+                  id="Email" 
+                  name="email"
+                  />
                 </div>
                 <div className="form-group col-md-6 col-sm-12  pt-4">
-                  <label htmlFor="cv">Upload CV</label>
+                  <label for="cv">Upload CV</label>
                   <input
                     type="file"
                     className="form-control "
                     id="cv"
-                    style={background} />
+                    style="background: #d8d8d8"
+                  />
                 </div>
               </div>
               <div className=" form-group form-row  pt-4">
-                <label htmlFor="resume">Cover Letter</label>
+                <label for="resume">Cover Letter</label>
                 <textarea
                   className="form-control"
                   rows="6"
                   id="resume"
-                  name="text"
+                  name="coverLetter"
                 />
               </div>
 
