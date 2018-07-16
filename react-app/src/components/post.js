@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Chips, { Chip } from 'react-chips';
-import { firebase, db } from '../util/firebase';
+import Chips from 'react-chips';
+import { db } from '../util/firebase';
 
 class Post extends Component {
   constructor() {
@@ -100,6 +100,7 @@ class Post extends Component {
                   id="job-title"
                   placeholder=" Senior Frontend Engineer"
                 />
+                <br />
                 <div className="form-row">
                   <div className="form-group col-md-6">
                     <label htmlFor="name">Company Name</label>

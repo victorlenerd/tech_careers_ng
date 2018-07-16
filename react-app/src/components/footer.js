@@ -3,7 +3,7 @@ import React from 'react';
 import heart from '../images/heart-outline.png';
 
 export default () => (
-  <footer className="fixed-bottom pt-2">
+  <footer className="pt-2">
     <div className="footer">
       <h3>
         Made with
