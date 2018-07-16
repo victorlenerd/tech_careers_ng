@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 const background = {
     background: '#d8d8d8'
@@ -51,4 +52,4 @@ class Apply extends Component {
     }
 }
 
-export default Apply;
+export default withRouter(Apply);
