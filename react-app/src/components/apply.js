@@ -12,14 +12,47 @@ class Apply extends Component {
     componentWillMount() {
         console.log(this.props);
     }
-    submit = (event) => {
-        event.preventDefault();
-        const firstName = event.target.firstName.value;
-        const lastName = event.target.lastName.value;
-        const email = event.target.email.value;
-        const coveLetter = event.target.coverletter.value;
-        console.log(firstName, lastName, email, coveLetter);
-    };
+
+    // submit = (event) => {
+    //     event.preventDefault();
+    //     const firstName = event.target.firstName.value;
+    //     const lastName = event.target.lastName.value;
+    //     const email = event.target.email.value;
+    //     const coveLetter = event.target.coverletter.value;
+    //     console.log(firstName, lastName, email, coveLetter);
+    // };
+
+
+onHandleApply = (event) => {
+    event.preventDefault();
+    const to = this.props.location.state.job.email;
+    const jobTitle = this.props.location.state.job.jobTitle;    
+    const fullname = event.target.fullname.value;
+    const phone = event.target.phone.value;
+    const email = event.target.email.value;
+    const coverLetter = event.target.coverletter.value;
+    const resume = event.target.resume.value;
+    let application = {fullname, phone, email, coverLetter, to, jobTitle};
+    
+    
+    let data = new FormData();
+    data.append("myjsonkey", JSON.stringify(application));
+
+  fetch('http://localhost:5555/apply', {
+    method: 'POST',
+    body: JSON.stringify(application),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then(function(response) {
+        return response;
+      }).then(function(body) {
+        // console.log(body);
+      });
+      event.target.reset();
+  }
+
+
 
     render() {
         return (
@@ -29,26 +62,26 @@ class Apply extends Component {
                         <form
                             id="apply-form"
                             className="border-0 px-5"
-                            onSubmit={this.submit}>
+                            onSubmit={this.onHandleApply}>
                             <div className="form-row pt-4">
                                 <div className="form-group col-md-6 col-sm-12 pt-4">
-                                    <label htmlFor="firstname">First Name</label>
+                                    <label htmlFor="firstname">Full Name</label>
                                     <input
                                         type="text"
                                         className="form-control  "
                                         id="firstname"
-                                        name="firstName"
+                                        name="fullname"
                                         required
                                     />
                                 </div>
 
                                 <div className="form-group col-md-6 col-sm-12  pt-4">
-                                    <label htmlFor="lastname">Last Name</label>
+                                    <label htmlFor="lastname">Phone</label>
                                     <input
-                                        type="text"
+                                        type="phone"
                                         className="form-control "
-                                        id="lastname"
-                                        name="lastName"
+                                        id="phone"
+                                        name="phone"
                                         required
                                     />
                                 </div>
@@ -73,7 +106,7 @@ class Apply extends Component {
                                         id="cv"
                                         name="resume"
                                         accept=".pdf,.doc"
-                                        onChange={this.uploadFile}
+                                        // onChange={this.uploadFile}
                                     // style={background}
                                     />
                                 </div>
@@ -95,7 +128,7 @@ class Apply extends Component {
                                     id="apply-btn"
                                     className="large-button btn col-sm-4 offset-sm-8 my-3 text-white mx-auto">
                                     Apply
-                </button>
+                                </button>
                             </div>
                         </form>
                     </div>
