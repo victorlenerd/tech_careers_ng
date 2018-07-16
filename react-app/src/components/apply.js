@@ -3,40 +3,44 @@ import React, { Component } from 'react';
 
 class Apply extends Component {
 
-
-  onHandleApply = (event) => {
-    event.preventDefault();
-    const firstName = event.target.firstName.value;
-    const lastName = event.target.lastName.value;
-    const email = event.target.email.value;
-    const coveLetter = event.target.coverletter.value;
-    let application = {firstName, lastName, email, coveLetter};
-    
-    
-    // let data = new FormData();
-    // data.append("myjsonkey", JSON.stringify(application));
-
-
-  fetch('http://localhost:5555/apply', {
-    method: 'POST',
-    body: JSON.stringify(application),
-    headers: {
-      'Content-Type': 'application/json'
+  uploadFile = (event) => {
+    let resume = event.target.files[0].name;
+    console.log(resume);
+    if (resume) {
+        let data = new FormData();
+        data.append('resume', resume);
+        console.log(data);
+        
     }
-  }).then(function(response) {
-        return response;
-      }).then(function(body) {
-        console.log(body);
-      });
-  
-  
+}
 
+  // onHandleApply = (event) => {
+  //   event.preventDefault();
+  //   const firstName = event.target.firstName.value;
+  //   const lastName = event.target.lastName.value;
+  //   const email = event.target.email.value;
+  //   const coveLetter = event.target.coverletter.value;
+  //   const resume = event.target.resume.value;
+  //   let application = {firstName, lastName, email, coveLetter};
     
-
-
-
     
-  };
+  //   // let data = new FormData();
+  //   // data.append("myjsonkey", JSON.stringify(application));
+
+
+  // fetch('http://localhost:5555/apply', {
+  //   method: 'POST',
+  //   body: JSON.stringify(application),
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //   }
+  // }).then(function(response) {
+  //       return response;
+  //     }).then(function(body) {
+  //       console.log(body);
+  //     });
+    
+  // };
 
   render() {
     return (
