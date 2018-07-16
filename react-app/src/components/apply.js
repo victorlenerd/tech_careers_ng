@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 class Apply extends Component {
+  constructor(props) {
+    super(props);
+
+    // const { location: { state: { questionId } } } = this.props;
+  }
+  componentWillMount() {
+    console.log(this.props);
+  }
   submit = (event) => {
     event.preventDefault();
     const firstName = event.target.firstName.value;
@@ -63,7 +72,7 @@ class Apply extends Component {
                     name="resume"
                     accept=".pdf,.doc"
                     onChange={this.uploadFile}
-                    // style={background}
+                  // style={background}
                   />
                 </div>
               </div>
@@ -94,4 +103,4 @@ class Apply extends Component {
   }
 }
 
-export default Apply;
+export default withRouter(Apply);
