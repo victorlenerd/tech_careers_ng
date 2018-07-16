@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import moment from 'moment';
 
-// export default (this.props) => {
-
-
-
 class Job extends Component {
   constructor(props) {
     super(props);
