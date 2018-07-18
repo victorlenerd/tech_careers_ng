@@ -21,13 +21,13 @@ export default () => (
       <h1 className="text-center">The Team</h1>
 
       <div className="row">
-        <div className="col-lg-3 col-md-6 pt-2 text-center">
+        <div className="col-lg-3 col-md-6 pt-2 text-center mt-3">
           <div className="card shadow">
             <img className="card-img-top" src={ppp} alt="Card" />
             <div className="card-body">
               <h5 className="card-title">
                 Okwukwe Ewurum <br />
-                <span className="text-color font-weight-bold">Team Lead</span>
+                <span className="about-color font-weight-bold">Team Lead</span>
               </h5>
               <p className="card-text">
                 Some quick example text to build on the card title and make up
@@ -42,11 +42,15 @@ export default () => (
           </div>
         </div>
 
-        <div className="col-lg-3 col-md-6 pt-2 text-center">
+        <div className="col-lg-3 col-md-6 pt-2 text-center mt-3">
           <div className="card shadow">
             <img className="card-img-top" src={ppp} alt="Card" />
             <div className="card-body">
-              <h5 className="card-title">Temilola Kutelu</h5>
+              <h5 className="card-title">
+                Temilola Kutelu
+                <br />
+                <span className="about-color font-weight-bold">Frontend</span>
+              </h5>
               <p className="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
@@ -60,11 +64,15 @@ export default () => (
           </div>
         </div>
 
-        <div className="col-lg-3 col-md-6 pt-2 text-center">
+        <div className="col-lg-3 col-md-6 pt-2 text-center mt-3">
           <div className="card shadow">
             <img className="card-img-top" src={ppp} alt="Card" />
             <div className="card-body">
-              <h5 className="card-title">Lucky Amadi</h5>
+              <h5 className="card-title">
+                Lucky Amadi
+                <br />
+                <span className="about-color font-weight-bold">Backend</span>
+              </h5>
               <p className="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
@@ -77,11 +85,15 @@ export default () => (
             </div>
           </div>
         </div>
-        <div className="col-lg-3 col-md-6 pt-2 text-center">
+        <div className="col-lg-3 col-md-6 pt-2 text-center mt-3">
           <div className="card shadow">
             <img className="card-img-top" src={ppp} alt="Card" />
             <div className="card-body">
-              <h5 className="card-title">Pelumi Adebayo</h5>
+              <h5 className="card-title">
+                Pelumi Adebayo
+                <br />
+                <span className="about-color font-weight-bold">Frontend</span>
+              </h5>
               <p className="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
