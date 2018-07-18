@@ -1,16 +1,23 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
+const exphbs = require('express-handlebars');
 const fileUpload = require('express-fileupload');
+const path = require('path');
 
-
+const app = express();
 // const path = require('path'); //module for generating file path in node
 let port = process.env.PORT || 5555;
 
-const app = express();
+
+//set up the view engine for the submit success
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+
+//static folder
+app.use('/public', express.static(path.join(__dirname, 'public')))
 
 app.use(fileUpload());
-
 // Body Parser Middleware
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -81,8 +88,12 @@ app.post('/apply', (req, res) => {
               console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
               
         
-              res.render('contact', {msg:'Email has been sent'});
+            //   res.render('contact', {msg:'Email has been sent'});
           });
+
+        //   res.render("submitted");
+        res.redirect('http://localhost:3000/apply?success=true');
+
         }
         //end mail text
 

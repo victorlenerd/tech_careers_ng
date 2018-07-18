@@ -8,10 +8,21 @@ const background = {
 class Apply extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            displayMsg: false,
+        }
     }
 
     componentWillMount() {
         console.log(this.props);
+        
+        let routeParam = this.props.location.search.replace("?", "");
+       let newRouteParam = routeParam.split("=");
+       console.log(newRouteParam);
+        if (newRouteParam[0] ==="success" && newRouteParam[1] ==="true"){
+            this.setState({displayMsg: true});
+            this.props.location.state.job.email = "";
+        }
     }
 
 
@@ -67,6 +78,9 @@ class Apply extends Component {
                             id="apply-form"
                             className="border-0 px-5"
                             >
+                            {this.state.displayMsg && <div className="alert alert-success" role="alert">
+                                <h3>Application Submitted</h3>
+                            </div>}
                             <input type="hidden" id="employer-email" name="to" value={this.props.location.state.job.email} />
                             <div className="form-row pt-4">
                                 <div className="form-group col-md-6 col-sm-12 pt-4">
