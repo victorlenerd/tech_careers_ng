@@ -1,79 +1,167 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 const background = {
     background: '#d8d8d8'
 };
 class Apply extends Component {
-
-
-    submit = (event) => {
-        event.preventDefault();
-        const firstName = event.target.firstName.value;
-        const lastName = event.target.lastName.value;
-        const email = event.target.email.value;
-        const coveLetter = event.target.coverletter.value;
-        console.log(firstName, lastName, email, coveLetter);
-        event.target.reset();
-    }
-
-    uploadFile = (event) => {
-        let resume = event.target.files;
-        if (resume) {
-            let reader = new FileReader();
-            reader.readAsDataURL(resume[0]);
-            reader.onload = (e) => {
-                const file = e.target.result;
-                // const url = '';
-                // const FormData = { file: e.target.result }
-                // return post(url, FormData)
-                //     .then(response => console.log(response))
-            };
+    constructor(props) {
+        super(props);
+        this.state = {
+            displayMsg: false,
+            email: true
         }
     }
 
+    componentWillMount() {
+        console.log(this.props);
+
+        let routeParam = this.props.location.search.replace("?", "");
+        let newRouteParam = routeParam.split("=");
+        console.log(newRouteParam);
+        if (newRouteParam[0] === "success" && newRouteParam[1] === "true") {
+            this.setState({
+                displayMsg: true,
+                email: false
+            });
+        }
+    }
+
+
+
+
+
+
+
+
+
+    // onHandleApply = (event) => {
+    //     event.preventDefault();
+    //     const to = this.props.location.state.job.email;
+    //     const jobTitle = this.props.location.state.job.jobTitle;
+    //     // const resume = event.target.resume;    
+    //     const fullname = event.target.fullname.value;
+    //     const phone = event.target.phone.value;
+    //     const email = event.target.email.value;
+    //     const coverLetter = event.target.coverletter.value;
+
+
+    //     let application = {fullname, phone, email, coverLetter, to, jobTitle};
+
+    //     let data = new FormData();
+    //     data.append("myjsonkey", JSON.stringify(application));
+
+    //   fetch('http://localhost:5555/apply', {
+    //     method: 'POST',
+    //     body: JSON.stringify(application),
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     }
+    //   }).then(function(response) {
+    //         return response;
+    //       }).then(function(body) {
+    //         // console.log(body);
+    //       });
+
+    //   }
+
+
+
     render() {
         return (
-            <div className="container">
+            <div className="container apply-page">
                 <div className="row position-form">
                     <div className="col-md-10 offset-md-1 col-sm-12 form-div rounded">
+                        <form
+                            encType="multipart/form-data"
+                            action='http://localhost:5555/apply'
+                            method='post'
 
-                        <form id="apply-form" className="border-0 px-5 " onSubmit={this.submit} >
+                            id="apply-form"
+                            className="border-0 px-5"
+                        >
+                            {this.state.displayMsg && <div className="alert alert-success mt-3 text-center" role="alert">
+                                <h3>Application Submitted</h3>
+                            </div>}
+                            {this.state.email && <input type="hidden" id="employer-email" name="to" value={this.props.location.state.job.email} />}
                             <div className="form-row pt-4">
                                 <div className="form-group col-md-6 col-sm-12 pt-4">
-                                    <label htmlFor="firstname">First Name</label>
-                                    <input type="text" className="form-control" id="firstname" name='firstName' required />
+                                    <label htmlFor="firstname">Full Name</label>
+                                    <input
+                                        type="text"
+                                        className="form-control  "
+                                        id="firstname"
+                                        name="fullname"
+                                        required
+                                    />
                                 </div>
 
                                 <div className="form-group col-md-6 col-sm-12  pt-4">
-                                    <label htmlFor="lastname">Last Name</label>
-                                    <input type="text" className="form-control " id="lastname" name='lastName' required />
-
+                                    <label htmlFor="lastname">Phone</label>
+                                    <input
+                                        type="phone"
+                                        className="form-control "
+                                        id="phone"
+                                        name="phone"
+                                        required
+                                    />
                                 </div>
                             </div>
 
                             <div className="form-row">
                                 <div className="form-group col-md-6 col-sm-12 pt-4">
                                     <label htmlFor="email">Email</label>
-                                    <input type='email' className="form-control " id="Email" name='email' required />
+                                    <input
+                                        type="email"
+                                        className="form-control "
+                                        id="Email"
+                                        name="email"
+                                        required
+                                    />
                                 </div>
                                 <div className="form-group col-md-6 col-sm-12  pt-4">
-                                    <label htmlFor="cv">Upload Resume</label>
-                                    <input type="file" className="form-control " id="cv" name='resume' accept=".pdf,.doc" onChange={this.uploadFile} required style={background} />
+                                    <label htmlFor="cv">Upload CV</label>
+                                    <input
+                                        type="file"
+                                        className="form-control "
+                                        id="cv"
+                                        name="resume"
+                                        accept=".pdf,.doc"
+                                    // onChange={this.uploadFile}
+                                    // style={background}
+                                    />
                                 </div>
                             </div>
                             <div className=" form-group form-row  pt-4">
-                                <label htmlFor="resume">Cover Letter</label>
-                                <textarea className="form-control" rows="6" id="coverLetter" name="coverletter" required></textarea>
+                                <label htmlFor="coverletter">Cover Letter</label>
+                                <textarea
+                                    className="form-control"
+                                    rows="6"
+                                    id="coverletter"
+                                    name="coverletter"
+                                    required
+                                />
                             </div>
 
                             <div className=" form-row ">
-                                <button type="submit" id="apply-btn" className="large-button btn col-sm-4 offset-sm-8 my-3 text-white mx-auto">Apply</button>
+                                <button
+                                    type="submit"
+                                    id="apply-btn"
+                                    className="large-button btn col-sm-4 offset-sm-8 my-3 text-white mx-auto"
+                                // onClick={this.onHandleApply}
+                                >
+                                    Apply
+                                </button>
                             </div>
                         </form>
+                        <div>
+                        </div>
                     </div>
                 </div>
             </div>
         );
-    };
-};
-export default Apply;
+    }
+
+}
+
+export default withRouter(Apply);
