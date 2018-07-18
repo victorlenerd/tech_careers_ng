@@ -4,13 +4,7 @@ const background = {
     background: '#d8d8d8'
 };
 class Apply extends Component {
-    state = {
-        firstName: '',
-        lastName: '',
-        email: '',
-        resume: '',
-        coveLetter: ''
-    }
+
 
     submit = (event) => {
         event.preventDefault();
@@ -19,26 +13,22 @@ class Apply extends Component {
         const email = event.target.email.value;
         const coveLetter = event.target.coverletter.value;
         console.log(firstName, lastName, email, coveLetter);
-        this.setState({
-            firstName,
-            lastName,
-            email,
-            coveLetter
-        })
-        event.target.firstName.value = '';
-        event.target.lastName.value = '';
-        event.target.email.value = '';
-        event.target.files = '';
-        event.target.coverletter.value = '';
+        event.target.reset();
     }
 
     uploadFile = (event) => {
-        let resume = event.target.files[0].name;
-        console.log(resume);
-        // if (file) {
-        //     let data = new FormData();
-        //     data.append('file', file);
-        // }
+        let resume = event.target.files;
+        if (resume) {
+            let reader = new FileReader();
+            reader.readAsDataURL(resume[0]);
+            reader.onload = (e) => {
+                const file = e.target.result;
+                // const url = '';
+                // const FormData = { file: e.target.result }
+                // return post(url, FormData)
+                //     .then(response => console.log(response))
+            };
+        }
     }
 
     render() {
