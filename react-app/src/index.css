@@ -21,11 +21,15 @@ body,
 }
 
 .navbar-toggler {
-  border: 1px solid #f58b3b;
+  border: 2px solid #f58b3b;
+}
+
+.navbar-toggler:focus {
+  outline: none;
 }
 
 .navbar-toggler .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#ffa64d' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#ffa64d' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
 .navbar-brand .brand-one {
@@ -47,9 +51,16 @@ body,
   position: relative;
 }
 
-.nav-item.active::after,
+.nav-item a {
+  text-decoration: none;
+}
+.is-active {
+  font-weight: bold;
+}
+
+.is-active::after,
 .nav-item:hover::after,
-.nav-item:active::after {
+.is-active:active::after {
   content: '';
   display: block;
   position: absolute;
@@ -144,23 +155,15 @@ body,
 }
 
 .search-btn {
-  border-radius: 100%;
-  height: 50px;
-  width: 100%;
-  color: #ffffff;
   font-family: 'Nunito', sans-serif;
-  font-size: 0.8em !important;
-  letter-spacing: 0.82px;
-  border-radius: 2.5rem;
-  border: none;
-  background-color: #f58b3b;
-  box-shadow: 0 2px 16px 4px rgba(245, 139, 59, 0.5);
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.search-btn:hover {
-  background-color: rgba(223, 134, 58, 0.61);
-}
+/* .search-btn:hover {
+  background-color: #db6e0e9c;
+} */
 
 /* End of landing page styles */
 
@@ -187,6 +190,11 @@ body,
   font-style: italic;
 }
 
+.about-color {
+  color: #f58b3b;
+  /* font-style: italic; */
+}
+
 .badge {
   background-color: #d8d8d8;
   color: #000000;
@@ -197,6 +205,14 @@ body,
   background-color: #f58b3b;
   color: white;
   font-size: 1.25rem;
+}
+
+.btn:hover {
+  color: rgb(36, 22, 22);
+}
+
+.btn:focus {
+  box-shadow: none;
 }
 
 .accordion {
@@ -351,8 +367,29 @@ footer {
 }
 
 @media (max-width: 990px) {
+  .navbar-brand .brand-one {
+    font-size: 1.5rem;
+  }
+
+  .navbar-brand .brand-two {
+    font-size: 1.3rem;
+  }
+
+  #navbarText {
+    margin-top: 1.5rem;
+  }
   .job-search {
     width: 96%;
+  }
+  .nav-item {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  .is-active::after,
+  .nav-item:hover::after,
+  .is-active:active::after {
+    width: 10%;
+    left: 0;
   }
 }
 
@@ -369,8 +406,9 @@ footer {
   .job-search {
     width: 100%;
     border-radius: 3px;
-    background-color: #ffffff;
-    box-shadow: 1px 3px 20px 15px rgba(0, 0, 0, 0.12);
+  }
+  .search-btn {
+    border-radius: 3px;
   }
   .control {
     height: 1.8rem;
@@ -403,18 +441,18 @@ footer {
   height: 100%;
 }
 
-.main .jumbotron {
+.jumbotron {
   width: 100%;
-  height: 550px;
+  height: 100%;
   border-radius: 0px;
   background-image: url(./images/landing-pic.jpg);
   background-size: cover;
-  position: relative;
+  /* position: relative; */
   background-repeat: no-repeat;
+  margin-bottom: 0;
 }
 
 .main .jumbotron .container {
-  padding-top: 80px;
   position: relative;
   text-align: center;
   color: #fff;
@@ -422,12 +460,30 @@ footer {
   letter-spacing: 0.3rem;
 }
 
+.main .jumbotron .container h1 {
+  font-size: 5rem;
+}
+
 .main .jumbotron .container p {
   letter-spacing: 0.2rem;
   font-family: 'Nunito', sans-serif;
-  font-size: 22px;
+  font-size: 2rem;
+}
+.home-btn {
+  z-index: 2;
 }
 
+@media (max-width: 1015px) {
+  .main .jumbotron .container h1 {
+    font-size: 4rem;
+  }
+
+  .main .jumbotron .container p {
+    letter-spacing: 0.2rem;
+    font-family: 'Nunito', sans-serif;
+    font-size: 2rem;
+  }
+}
 .select-style {
   border: none;
   border-radius: 3px;
@@ -448,12 +504,18 @@ footer {
   padding-bottom: 100px;
 }
 
-/* .job-price {
-  margin-left: 250px;
-} */
 @media (max-width: 991px) {
   .job-price {
     margin-left: 50px;
+  }
+  .main .jumbotron .container h1 {
+    font-size: 6vw;
+  }
+
+  .main .jumbotron .container p {
+    letter-spacing: 0.2rem;
+    font-family: 'Nunito', sans-serif;
+    font-size: 3vw;
   }
 }
 
