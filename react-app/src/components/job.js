@@ -10,17 +10,16 @@ class Job extends Component {
     this.state = {
       start: moment(new Date(this.props.job.createdAt.seconds * 1000)),
       now: moment(new Date())
-    }
+    };
   }
 
   pushProps(e) {
     e.preventDefault();
-    this.props.history.push("/apply", {
+    this.props.history.push('/apply', {
       job: this.props.job
     });
   }
   render() {
-
     return (
       <div className="container mb-2">
         <div className="accordion mt-3" id="jobAccordion">
@@ -38,10 +37,12 @@ class Job extends Component {
                 </span>
                 <span className=" text-color job-price text-right">
                   {this.props.job.minPrice}K - {this.props.job.maxPrice}K
-              </span>
+                </span>
               </div>
-              <div className="job-content mt-4">
-                <span className="text-color mr-4">{this.props.job.jobType}</span>
+              <div className="job-content mt-4 text-capitalize">
+                <span className="text-color mr-4">
+                  {this.props.job.jobType}
+                </span>
 
                 {this.props.job.chips.map((chip, i) => {
                   return (
@@ -62,7 +63,7 @@ class Job extends Component {
                   aria-expanded="true"
                   aria-controls={this.props.job.id}>
                   Jobs Details
-              </button>
+                </button>
               </h5>
             </div>
             <div
@@ -77,9 +78,13 @@ class Job extends Component {
                 </div>
                 <div className="row mt-5">
                   <div className="col-xs-6 col-sm-4 col-md-2 offset-xs-2 offset-md-5 offset-sm-4">
-                    <NavLink to="/apply" role="button" className="btn btn-block" onClick={this.pushProps} >
+                    <NavLink
+                      to="/apply"
+                      role="button"
+                      className="btn btn-block"
+                      onClick={this.pushProps}>
                       Apply
-                  </NavLink>
+                    </NavLink>
                   </div>
                 </div>
               </div>
@@ -88,6 +93,6 @@ class Job extends Component {
         </div>
       </div>
     );
-  };
+  }
 }
 export default withRouter(Job);

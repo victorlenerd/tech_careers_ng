@@ -7,10 +7,6 @@ import Jobs from './pages/jobs';
 import Post from './pages/post';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <BrowserRouter>
