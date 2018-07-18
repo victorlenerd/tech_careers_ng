@@ -8,49 +8,63 @@ const background = {
 class Apply extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            displayMsg: false,
+            email: true
+        }
     }
+
     componentWillMount() {
         console.log(this.props);
+        
+        let routeParam = this.props.location.search.replace("?", "");
+       let newRouteParam = routeParam.split("=");
+       console.log(newRouteParam);
+        if (newRouteParam[0] ==="success" && newRouteParam[1] ==="true"){
+            this.setState({
+                displayMsg: true,
+                email : false
+            });
+        }
     }
 
-    // submit = (event) => {
-    //     event.preventDefault();
-    //     const firstName = event.target.firstName.value;
-    //     const lastName = event.target.lastName.value;
-    //     const email = event.target.email.value;
-    //     const coveLetter = event.target.coverletter.value;
-    //     console.log(firstName, lastName, email, coveLetter);
-    // };
 
 
-onHandleApply = (event) => {
-    event.preventDefault();
-    const to = this.props.location.state.job.email;
-    const jobTitle = this.props.location.state.job.jobTitle;    
-    const fullname = event.target.fullname.value;
-    const phone = event.target.phone.value;
-    const email = event.target.email.value;
-    const coverLetter = event.target.coverletter.value;
-    const resume = event.target.resume.value;
-    let application = {fullname, phone, email, coverLetter, to, jobTitle};
+
+   
+
+   
+
+
+// onHandleApply = (event) => {
+//     event.preventDefault();
+//     const to = this.props.location.state.job.email;
+//     const jobTitle = this.props.location.state.job.jobTitle;
+//     // const resume = event.target.resume;    
+//     const fullname = event.target.fullname.value;
+//     const phone = event.target.phone.value;
+//     const email = event.target.email.value;
+//     const coverLetter = event.target.coverletter.value;
     
+ 
+//     let application = {fullname, phone, email, coverLetter, to, jobTitle};
     
-    let data = new FormData();
-    data.append("myjsonkey", JSON.stringify(application));
+//     let data = new FormData();
+//     data.append("myjsonkey", JSON.stringify(application));
 
-  fetch('http://localhost:5555/apply', {
-    method: 'POST',
-    body: JSON.stringify(application),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }).then(function(response) {
-        return response;
-      }).then(function(body) {
-        // console.log(body);
-      });
-      event.target.reset();
-  }
+//   fetch('http://localhost:5555/apply', {
+//     method: 'POST',
+//     body: JSON.stringify(application),
+//     headers: {
+//       'Content-Type': 'application/json'
+//     }
+//   }).then(function(response) {
+//         return response;
+//       }).then(function(body) {
+//         // console.log(body);
+//       });
+      
+//   }
 
 
 
@@ -60,9 +74,17 @@ onHandleApply = (event) => {
                 <div className="row position-form">
                     <div className="col-md-10 offset-md-1 col-sm-12 form-div rounded">
                         <form
+                        encType="multipart/form-data"
+                        action='http://localhost:5555/apply' 
+                        method='post'
+                        
                             id="apply-form"
                             className="border-0 px-5"
-                            onSubmit={this.onHandleApply}>
+                            >
+                            {this.state.displayMsg && <div className="alert alert-success mt-3 text-center" role="alert">
+                                <h3>Application Submitted</h3>
+                            </div>}
+                            {this.state.email && <input type="hidden" id="employer-email" name="to" value={this.props.location.state.job.email} />}
                             <div className="form-row pt-4">
                                 <div className="form-group col-md-6 col-sm-12 pt-4">
                                     <label htmlFor="firstname">Full Name</label>
@@ -126,16 +148,21 @@ onHandleApply = (event) => {
                                 <button
                                     type="submit"
                                     id="apply-btn"
-                                    className="large-button btn col-sm-4 offset-sm-8 my-3 text-white mx-auto">
+                                    className="large-button btn col-sm-4 offset-sm-8 my-3 text-white mx-auto"
+                                    // onClick={this.onHandleApply}
+                                    >
                                     Apply
                                 </button>
                             </div>
                         </form>
+                    <div>            
+                    </div>
                     </div>
                 </div>
             </div>
         );
     }
+    
 }
 
 export default withRouter(Apply);
