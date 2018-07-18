@@ -46,12 +46,12 @@ class Post extends Component {
   //Button Post
   onPostJob = (e) => {
     e.preventDefault();
-    const jobTitle = e.target.jobTitle.value.trim();
-    const companyName = e.target.name.value.trim();
+    const jobTitle = e.target.jobTitle.value.trim().toLowerCase();
+    const companyName = e.target.name.value.trim().toLowerCase();
     const email = e.target.email.value.trim();
-    const role = e.target.role.value.trim();
-    const jobType = e.target.jobType.value.trim();
-    const location = e.target.location.value.trim();
+    const role = e.target.role.value.trim().toLowerCase();
+    const jobType = e.target.jobType.value.trim().toLowerCase();
+    const location = e.target.location.value.trim().toLowerCase();
     const jobDescription = e.target.description.value.trim();
 
     // console.log(companyName, email, role, jobType, location, jobDescription, jobTitle, this.state);

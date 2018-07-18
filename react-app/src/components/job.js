@@ -5,7 +5,7 @@ import moment from 'moment';
 export default (props) => {
   const start = moment(new Date(props.job.createdAt.seconds * 1000));
   const now = moment(new Date());
-  console.log('from job --->', start.from(now, true));
+
   return (
     <div className="container mb-2">
       <div className="accordion mt-3" id="jobAccordion">
@@ -26,7 +26,9 @@ export default (props) => {
               </span>
             </div>
             <div className="job-content mt-4">
-              <span className="text-color mr-4">{props.job.jobType}</span>
+              <span className="text-color mr-4 text-capitalize">
+                {props.job.jobType}
+              </span>
 
               {props.job.chips.map((chip, i) => {
                 return (
