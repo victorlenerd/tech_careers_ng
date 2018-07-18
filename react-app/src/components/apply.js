@@ -10,6 +10,7 @@ class Apply extends Component {
         super(props);
         this.state = {
             displayMsg: false,
+            email: true
         }
     }
 
@@ -20,8 +21,10 @@ class Apply extends Component {
        let newRouteParam = routeParam.split("=");
        console.log(newRouteParam);
         if (newRouteParam[0] ==="success" && newRouteParam[1] ==="true"){
-            this.setState({displayMsg: true});
-            this.props.location.state.job.email = "";
+            this.setState({
+                displayMsg: true,
+                email : false
+            });
         }
     }
 
@@ -78,10 +81,10 @@ class Apply extends Component {
                             id="apply-form"
                             className="border-0 px-5"
                             >
-                            {this.state.displayMsg && <div className="alert alert-success" role="alert">
+                            {this.state.displayMsg && <div className="alert alert-success mt-3 text-center" role="alert">
                                 <h3>Application Submitted</h3>
                             </div>}
-                            <input type="hidden" id="employer-email" name="to" value={this.props.location.state.job.email} />
+                            {this.state.email && <input type="hidden" id="employer-email" name="to" value={this.props.location.state.job.email} />}
                             <div className="form-row pt-4">
                                 <div className="form-group col-md-6 col-sm-12 pt-4">
                                     <label htmlFor="firstname">Full Name</label>
