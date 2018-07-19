@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Chips from 'react-chips';
 import { db } from '../util/firebase';
+import FormReCaptcha from './recaptcha';
 
 class Post extends Component {
   constructor() {
@@ -81,6 +82,10 @@ class Post extends Component {
 
     e.target.reset();
   };
+
+  onChange(value) {
+    console.log('Captcha value:', value);
+  }
 
   render() {
     return (
@@ -264,16 +269,20 @@ class Post extends Component {
                   suggestions={['javascript', 'Data', 'fulltime']}
                 />
 
-                <div className=" form-row ">
-                  <button
+                <div className=" form-row mt-4 ">
+                  <FormReCaptcha />
+                  <button disabled
                     type="submit"
                     id="post-btn"
                     className="large-button btn col-sm-4 offset-sm-8 my-3 text-white mx-auto">
                     Post Job
                   </button>
+
                 </div>
               </form>
+
             </div>
+
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import FormReCaptcha from './recaptcha';
 
 class Apply extends Component {
   constructor(props) {
@@ -139,6 +140,7 @@ class Apply extends Component {
               </div>
 
               <div className=" form-row ">
+                <FormReCaptcha />
                 <button
                   type="submit"
                   id="apply-btn"
