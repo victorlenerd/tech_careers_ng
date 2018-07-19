@@ -39,7 +39,24 @@ class Job extends Component {
                   {this.props.job.minPrice}K - {this.props.job.maxPrice}K
                 </span>
               </div>
-              <div className="job-content mt-4 text-capitalize">
+              <div className="job-content d-flex justify-content-start mt-2">
+                {this.props.job.experienceJunior && (
+                  <p className="badge badge-info text-capitalize ml-1">
+                    Junior
+                  </p>
+                )}
+                {this.props.job.experienceIntermediate && (
+                  <p className="badge badge-info text-capitalize ml-1">
+                    Intermediate
+                  </p>
+                )}
+                {this.props.job.experienceSenior && (
+                  <p className="badge badge-info text-capitalize ml-1">
+                    Senior
+                  </p>
+                )}
+              </div>
+              <div className="job-content text-capitalize">
                 <span className="text-color mr-4">
                   {this.props.job.jobType}
                 </span>

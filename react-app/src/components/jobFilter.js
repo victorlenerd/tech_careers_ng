@@ -21,8 +21,8 @@ export default (props) => {
       <select
         name="typeSelect"
         onChange={updateOption}
-        className="col-sm-4 filter-control">
-        <option value="">Type...</option>
+        className="col-sm-6 filter-control">
+        <option value="">Select Type...</option>
         <option value="fulltime">Fulltime</option>
         <option value="parttime">Parttime</option>
         <option value="remote">Remote</option>
@@ -31,21 +31,12 @@ export default (props) => {
       <select
         name="roleSelect"
         onChange={updateOption}
-        className="col-sm-4 filter-control">
-        <option value="">Role...</option>
+        className="col-sm-6 filter-control">
+        <option value="">Select Role...</option>
         <option value="backend">Backend</option>
         <option value="frontend">Frontend</option>
         <option value="fullstack">Fullstack</option>
         <option value="designer">Designer</option>
-      </select>
-      <select
-        name="experienceSelect"
-        onChange={updateOption}
-        className="col-sm-4 filter-control">
-        <option value="">Experience...</option>
-        <option value="junior">Junior</option>
-        <option value="intermediate">Intermediate</option>
-        <option value="senior">Senior</option>
       </select>
     </div>
   );
