@@ -187,7 +187,8 @@ body,
 
 .text-color {
   color: #f58b3b;
-  font-style: italic;
+  /* font-style: italic; */
+  font-weight: bold;
 }
 
 .about-color {
@@ -195,9 +196,15 @@ body,
   /* font-style: italic; */
 }
 
-.badge {
+.badge-secondary {
   background-color: #d8d8d8;
   color: #000000;
+}
+
+.badge-info {
+  font-size: 0.95rem;
+  background-color: #f58b3b;
+  font-weight: bolder;
 }
 
 .btn {

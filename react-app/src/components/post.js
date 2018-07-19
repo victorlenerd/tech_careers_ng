@@ -6,11 +6,11 @@ class Post extends Component {
   constructor() {
     super();
     this.state = {
-      minPrice: 0,
-      maxPrice: 0,
       experienceJunior: false,
       experienceIntermediate: false,
       experienceSenior: false,
+      minPrice: 0,
+      maxPrice: 0,
       chips: [],
       createdAt: 0,
       jobTitle: ''
@@ -92,13 +92,13 @@ class Post extends Component {
                 id="post-form"
                 className=" border-0 px-4 pt-5"
                 onSubmit={this.onPostJob}>
-                <label htmlFor="email">Job Title</label>
+                <label htmlFor="job-title">Job Title</label>
                 <input
                   type="text"
                   name="jobTitle"
                   className="form-control"
                   id="job-title"
-                  placeholder=" Senior Frontend Engineer"
+                  placeholder="Frontend Engineer"
                 />
                 <br />
                 <div className="form-row">
@@ -109,6 +109,7 @@ class Post extends Component {
                       className="form-control"
                       name="name"
                       id="name"
+                      placeholder="Company name..."
                       required
                     />
                   </div>
@@ -119,6 +120,7 @@ class Post extends Component {
                       name="email"
                       className="form-control"
                       id="email"
+                      placeholder="e.g. example@example.com"
                       required
                     />
                   </div>
@@ -176,7 +178,7 @@ class Post extends Component {
                           className="form-check-input checks"
                           type="checkbox"
                           id="junior"
-                          value="experienceJunior"
+                          value="junior"
                           onChange={this.handleCheckChange}
                           name="experienceJunior"
                         />
@@ -190,8 +192,8 @@ class Post extends Component {
                         <input
                           className="form-check-input"
                           type="checkbox"
-                          id="Intermediate"
-                          value="experienceIntermediate"
+                          id="intermediate"
+                          value="intermediate"
                           name="experienceIntermediate"
                           onChange={this.handleCheckChange}
                         />
@@ -206,7 +208,7 @@ class Post extends Component {
                           className="form-check-input"
                           type="checkbox"
                           id="Senior"
-                          value="experienceSenior"
+                          value="senior"
                           name="experienceSenior"
                           onChange={this.handleCheckChange}
                         />
@@ -261,7 +263,13 @@ class Post extends Component {
                   id="chips"
                   value={this.state.chips}
                   onChange={this.onChangeChips}
-                  suggestions={['javascript', 'Data', 'fulltime']}
+                  suggestions={[
+                    'Javascript',
+                    'Data',
+                    'React',
+                    'Nodejs',
+                    'Angular'
+                  ]}
                 />
 
                 <div className=" form-row ">

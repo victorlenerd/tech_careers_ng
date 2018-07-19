@@ -10,7 +10,7 @@ const Home = () => (
       <div className="overlay" />
       <div className="container">
         <h1>
-          Discover The Best Jobs<br />Oppurtunities In Tech.
+          Discover The Best Jobs<br />Opportunities In Tech.
         </h1>
         <br />
         <br />
