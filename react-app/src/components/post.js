@@ -3,34 +3,32 @@ import Chips from 'react-chips';
 import { db } from '../util/firebase';
 
 class Post extends Component {
-  constructor() {
-    super();
-    this.state = {
-      experienceJunior: false,
-      experienceIntermediate: false,
-      experienceSenior: false,
-      minPrice: 0,
-      maxPrice: 0,
-      chips: [],
-      createdAt: 0,
-      jobTitle: ''
-    };
-  }
+  state = {
+    experienceJunior: false,
+    experienceIntermediate: false,
+    experienceSenior: false,
+    minPrice: 0,
+    maxPrice: 0,
+    chips: [],
+    createdAt: 0,
+    jobTitle: ''
+  };
 
-  //populating the state with form inputs
-  //min price
+  // populating the state with form inputs min price
   handleChangeMinPrice = (e) => {
     this.setState({
       minPrice: e.target.value
     });
   };
-  //max price
+
+  // populating the state with form inputs max price
   handleChangeMaxPrice = (e) => {
     this.setState({
       maxPrice: e.target.value
     });
   };
 
+  // Get the experience level
   handleCheckChange = (e) => {
     const name = e.target.name;
 
@@ -39,6 +37,7 @@ class Post extends Component {
     });
   };
 
+  // Collect the tags input
   onChangeChips = (chips) => {
     this.setState({ chips });
   };
@@ -54,7 +53,7 @@ class Post extends Component {
     const location = e.target.location.value.trim().toLowerCase();
     const jobDescription = e.target.description.value.trim();
 
-    // console.log(companyName, email, role, jobType, location, jobDescription, jobTitle, this.state);
+    // Send the data to the database
     db.collection('jobs')
       .add({
         companyName,
@@ -276,7 +275,7 @@ class Post extends Component {
                   <button
                     type="submit"
                     id="post-btn"
-                    className="large-button btn col-sm-4 offset-sm-8 my-3 text-white mx-auto">
+                    className="btn btn-large my-3 mx-auto">
                     Post Job
                   </button>
                 </div>

@@ -35,7 +35,7 @@ export default () => (
               </p>
               <a
                 href="https://www.linkedin.com/in/okwukwe-ewurum-1625a338/"
-                className="btn text-white">
+                className="btn btn-more">
                 LinkedIn
               </a>
             </div>
@@ -49,7 +49,7 @@ export default () => (
               <h5 className="card-title">
                 Temilola Kutelu
                 <br />
-                <span className="about-color font-weight-bold">Frontend</span>
+                <span className="about-color font-weight-bold">Developer</span>
               </h5>
               <p className="card-text">
                 Some quick example text to build on the card title and make up
@@ -57,7 +57,7 @@ export default () => (
               </p>
               <a
                 href="https://www.linkedin.com/in/temilola-kutelu-714761a4/"
-                className="btn text-white">
+                className="btn btn-more">
                 LinkedIn
               </a>
             </div>
@@ -71,7 +71,7 @@ export default () => (
               <h5 className="card-title">
                 Lucky Amadi
                 <br />
-                <span className="about-color font-weight-bold">Backend</span>
+                <span className="about-color font-weight-bold">Developer</span>
               </h5>
               <p className="card-text">
                 Some quick example text to build on the card title and make up
@@ -79,7 +79,7 @@ export default () => (
               </p>
               <a
                 href="https://www.linkedin.com/in/lucky-amadi-40408b41/"
-                className="btn text-white">
+                className="btn btn-more">
                 LinkedIn
               </a>
             </div>
@@ -92,7 +92,7 @@ export default () => (
               <h5 className="card-title">
                 Pelumi Adebayo
                 <br />
-                <span className="about-color font-weight-bold">Frontend</span>
+                <span className="about-color font-weight-bold">Developer</span>
               </h5>
               <p className="card-text">
                 Some quick example text to build on the card title and make up
@@ -100,7 +100,7 @@ export default () => (
               </p>
               <a
                 href="https://www.linkedin.com/in/adepelumi/"
-                className="btn text-white">
+                className="btn btn-more">
                 LinkedIn
               </a>
             </div>

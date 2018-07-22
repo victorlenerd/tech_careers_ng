@@ -11,22 +11,17 @@ class Jobs extends Component {
   state = {
     jobs: [],
     type: '',
-    role: '',
-    experience: ''
+    role: ''
   };
 
   componentWillMount() {
     this.fetchJobs();
   }
 
-  filterJobs = (type, role, experience) => {
-    if (type || role || experience) {
-      this.setState({
-        type: type,
-        role: role,
-        experience: experience
-      });
-    }
+  filterJobs = (name, value) => {
+    this.setState({
+      [name]: value
+    });
   };
 
   fetchJobs = () => {
@@ -43,21 +38,25 @@ class Jobs extends Component {
   };
 
   render() {
-    console.log(this.state);
-
     const filteredQuery = this.state.jobs.filter((data) => {
-      if (this.state.type === '' && this.state.role === '') {
+      if (
+        this.state.type === '' ||
+        this.state.type.toLowerCase() === data.jobType.toLowerCase()
+      ) {
         return true;
       }
-      if (
-        data.jobType.toLowerCase() === this.state.type.toLowerCase() ||
-        data.role.toLowerCase() === this.state.role.toLowerCase()
-      )
-        return true;
       return false;
     });
 
-    console.log('Filtered Query', filteredQuery);
+    const moreFilteredQuery = filteredQuery.filter((data) => {
+      if (
+        this.state.role === '' ||
+        data.role.toLowerCase() === this.state.role.toLowerCase()
+      ) {
+        return true;
+      }
+      return false;
+    });
 
     return (
       <div className="jobs">
@@ -67,7 +66,7 @@ class Jobs extends Component {
           <JobFilter filterJobs={this.filterJobs} />
         </div>
 
-        {filteredQuery.map((job, i) => {
+        {moreFilteredQuery.map((job, i) => {
           return <Job job={job} key={i} />;
         })}
         <Footer />

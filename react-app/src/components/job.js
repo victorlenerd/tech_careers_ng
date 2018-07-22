@@ -13,6 +13,7 @@ class Job extends Component {
     };
   }
 
+  // Send employer's email with the apply form
   pushProps(e) {
     e.preventDefault();
     this.props.history.push('/apply', {
@@ -72,15 +73,17 @@ class Job extends Component {
                 })}
               </div>
               <h5 className="mt-3">
-                <button
-                  className="btn btn-more"
-                  type="button"
-                  data-toggle="collapse"
-                  data-target={`#${this.props.job.id}`}
-                  aria-expanded="true"
-                  aria-controls={this.props.job.id}>
-                  Jobs Details
-                </button>
+                <div className="d-flex justify-content-center justify-content-md-end job-detail-btn">
+                  <button
+                    className="btn btn-more"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target={`#${this.props.job.id}`}
+                    aria-expanded="true"
+                    aria-controls={this.props.job.id}>
+                    Jobs Details
+                  </button>
+                </div>
               </h5>
             </div>
             <div
@@ -93,16 +96,14 @@ class Job extends Component {
                 <div className="card-text">
                   <p>{this.props.job.jobDescription}</p>
                 </div>
-                <div className="row mt-5">
-                  <div className="col-xs-6 col-sm-4 col-md-2 offset-xs-2 offset-md-5 offset-sm-4">
-                    <NavLink
-                      to="/apply"
-                      role="button"
-                      className="btn btn-block"
-                      onClick={this.pushProps}>
-                      Apply
-                    </NavLink>
-                  </div>
+                <div className="d-flex justify-content-center">
+                  <NavLink
+                    to="/apply"
+                    role="button"
+                    className="btn btn-more"
+                    onClick={this.pushProps}>
+                    Apply
+                  </NavLink>
                 </div>
               </div>
             </div>
