@@ -1,6 +1,11 @@
 import React from 'react';
 
 import ppp from '../images/profile-picture-placeholder.png';
+import okwukwe from '../images/okwukwe.jpg';
+// import lola from '../images/lola.jpg';
+import lucky from '../images/lucky.jpg';
+import pelumi from '../images/pelumi.jpg';
+import img from '../images/img.jpg';
 
 export default () => (
   <div>
@@ -23,16 +28,16 @@ export default () => (
       <div className="row">
         <div className="col-lg-3 col-md-6 pt-2 text-center mt-3">
           <div className="card shadow">
-            <img className="card-img-top" src={ppp} alt="Card" />
+            <img className="card-img-top" src={okwukwe} alt="Card" />
             <div className="card-body">
               <h5 className="card-title">
                 Okwukwe Ewurum <br />
                 <span className="about-color font-weight-bold">Team Lead</span>
               </h5>
-              <p className="card-text">
+              {/* <p className="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
-              </p>
+              </p> */}
               <a
                 href="https://www.linkedin.com/in/okwukwe-ewurum-1625a338/"
                 className="btn btn-more">
@@ -44,17 +49,17 @@ export default () => (
 
         <div className="col-lg-3 col-md-6 pt-2 text-center mt-3">
           <div className="card shadow">
-            <img className="card-img-top" src={ppp} alt="Card" />
+            <img className="card-img-top" src={img} alt="Card" />
             <div className="card-body">
               <h5 className="card-title">
                 Temilola Kutelu
                 <br />
                 <span className="about-color font-weight-bold">Developer</span>
               </h5>
-              <p className="card-text">
+              {/* <p className="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
-              </p>
+              </p> */}
               <a
                 href="https://www.linkedin.com/in/temilola-kutelu-714761a4/"
                 className="btn btn-more">
@@ -66,17 +71,17 @@ export default () => (
 
         <div className="col-lg-3 col-md-6 pt-2 text-center mt-3">
           <div className="card shadow">
-            <img className="card-img-top" src={ppp} alt="Card" />
+            <img className="card-img-top" src={lucky} alt="Card" />
             <div className="card-body">
               <h5 className="card-title">
                 Lucky Amadi
                 <br />
                 <span className="about-color font-weight-bold">Developer</span>
               </h5>
-              <p className="card-text">
+              {/* <p className="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
-              </p>
+              </p> */}
               <a
                 href="https://www.linkedin.com/in/lucky-amadi-40408b41/"
                 className="btn btn-more">
@@ -87,17 +92,17 @@ export default () => (
         </div>
         <div className="col-lg-3 col-md-6 pt-2 text-center mt-3">
           <div className="card shadow">
-            <img className="card-img-top" src={ppp} alt="Card" />
+            <img className="card-img-top" src={pelumi} alt="Card" />
             <div className="card-body">
               <h5 className="card-title">
                 Pelumi Adebayo
                 <br />
                 <span className="about-color font-weight-bold">Developer</span>
               </h5>
-              <p className="card-text">
+              {/* <p className="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
-              </p>
+              </p> */}
               <a
                 href="https://www.linkedin.com/in/adepelumi/"
                 className="btn btn-more">
