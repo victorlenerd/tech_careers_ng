@@ -40,7 +40,7 @@ export default () => (
               </p> */}
               <a
                 href="https://www.linkedin.com/in/okwukwe-ewurum-1625a338/"
-                className="btn btn-more">
+                className="btn btn-linkedin">
                 LinkedIn
               </a>
             </div>
@@ -62,7 +62,7 @@ export default () => (
               </p> */}
               <a
                 href="https://www.linkedin.com/in/temilola-kutelu-714761a4/"
-                className="btn btn-more">
+                className="btn btn-linkedin">
                 LinkedIn
               </a>
             </div>
@@ -84,7 +84,7 @@ export default () => (
               </p> */}
               <a
                 href="https://www.linkedin.com/in/lucky-amadi-40408b41/"
-                className="btn btn-more">
+                className="btn btn-linkedin">
                 LinkedIn
               </a>
             </div>
@@ -105,7 +105,7 @@ export default () => (
               </p> */}
               <a
                 href="https://www.linkedin.com/in/adepelumi/"
-                className="btn btn-more">
+                className="btn btn-linkedin">
                 LinkedIn
               </a>
             </div>

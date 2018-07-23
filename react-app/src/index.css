@@ -191,6 +191,7 @@ body,
 
 .about-color {
   color: #f58b3b;
+  font-size: 1rem;
   /* font-style: italic; */
 }
 
@@ -229,6 +230,11 @@ body,
 .btn-more {
   border-radius: 0.7rem;
   font-size: 1.2rem;
+}
+
+.btn-linkedin {
+  padding: 0 5px;
+  font-weight: bold;
 }
 
 .accordion {
@@ -568,20 +574,7 @@ footer {
     border: none;
     border-bottom: 1px solid #f58b3b;
   }
-
-  /* .btn-search-div {
-    margin-top: 1rem;
-  }
-
-  .main .jumbotron .container h1 {
-    font-size: 1rem; */
 }
-
-/* .main .jumbotron .container p {
-  letter-spacing: 0.1rem;
-  font-family: 'Nunito', sans-serif;
-  font-size: 0.8rem;
-} */
 
 .jobs,
 .apply,
