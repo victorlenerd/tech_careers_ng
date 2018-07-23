@@ -3,16 +3,20 @@ import Chips from 'react-chips';
 import { db } from '../util/firebase';
 
 class Post extends Component {
-  state = {
-    experienceJunior: false,
-    experienceIntermediate: false,
-    experienceSenior: false,
-    minPrice: 0,
-    maxPrice: 0,
-    chips: [],
-    createdAt: 0,
-    jobTitle: ''
-  };
+  constructor() {
+    super();
+    this.state = {
+      minPrice: 0,
+      maxPrice: 0,
+      experienceJunior: false,
+      experienceIntermediate: false,
+      experienceSenior: false,
+      chips: [],
+      createdAt: 0,
+      jobTitle: '',
+      posted: false
+    };
+  }
 
   // populating the state with form inputs min price
   handleChangeMinPrice = (e) => {
@@ -73,6 +77,10 @@ class Post extends Component {
       })
       .then((docRef) => {
         console.log('Document written with ID: ', docRef.id);
+        this.setState({
+          posted: true,
+          chips: []
+        })
       })
       .catch((error) => {
         console.error('Error adding document: ', error);
@@ -91,7 +99,10 @@ class Post extends Component {
                 id="post-form"
                 className=" border-0 px-4 pt-5"
                 onSubmit={this.onPostJob}>
-                <label htmlFor="job-title">Job Title</label>
+                {this.state.posted && <div className="alert alert-success mt-3 text-center" role="alert">
+                                <h3>Job Posted Successfully</h3>
+                            </div>}
+                <label htmlFor="email">Job Title</label>
                 <input
                   type="text"
                   name="jobTitle"
