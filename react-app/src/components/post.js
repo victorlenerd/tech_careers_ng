@@ -13,7 +13,8 @@ class Post extends Component {
       experienceSenior: false,
       chips: [],
       createdAt: 0,
-      jobTitle: ''
+      jobTitle: '',
+      posted: false
     };
   }
 
@@ -74,6 +75,10 @@ class Post extends Component {
       })
       .then((docRef) => {
         console.log('Document written with ID: ', docRef.id);
+        this.setState({
+          posted: true,
+          chips: []
+        })
       })
       .catch((error) => {
         console.error('Error adding document: ', error);
@@ -92,6 +97,9 @@ class Post extends Component {
                 id="post-form"
                 className=" border-0 px-4 pt-5"
                 onSubmit={this.onPostJob}>
+                {this.state.posted && <div className="alert alert-success mt-3 text-center" role="alert">
+                                <h3>Job Posted Successfully</h3>
+                            </div>}
                 <label htmlFor="email">Job Title</label>
                 <input
                   type="text"
