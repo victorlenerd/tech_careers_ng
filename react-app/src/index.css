@@ -484,10 +484,6 @@ footer {
   .btn-search-div {
     margin-top: 0.8rem;
   }
-
-  /* .search-filter {
-    margin-top: 0;
-  } */
 }
 
 @media (max-width: 425px) {
@@ -498,10 +494,6 @@ footer {
   .main .jumbotron .container p {
     font-size: 1.2rem;
   }
-
-  /* .search-filter {
-    margin-top: 2rem;
-  } */
 }
 
 .select-style {
@@ -522,6 +514,10 @@ footer {
 
 .apply-page {
   padding-bottom: 100px;
+}
+
+.search-filter {
+  font-family: 'Nunito', sans-serif;
 }
 
 @media (max-width: 991px) {

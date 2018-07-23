@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Loader from 'react-loader-spinner';
+import LazyLoad from 'react-lazy-load';
 
 import Header from '../components/header';
 import NavTop from '../components/navTop';
@@ -11,7 +13,8 @@ class Jobs extends Component {
   state = {
     jobs: [],
     type: '',
-    role: ''
+    role: '',
+    loading: true
   };
 
   componentWillMount() {
@@ -31,7 +34,8 @@ class Jobs extends Component {
       .then((docs) => {
         docs.forEach((doc) => {
           this.setState({
-            jobs: this.state.jobs.concat({ id: doc.id, ...doc.data() })
+            jobs: this.state.jobs.concat({ id: doc.id, ...doc.data() }),
+            loading: false
           });
         });
       });
@@ -66,9 +70,20 @@ class Jobs extends Component {
           <JobFilter filterJobs={this.filterJobs} />
         </div>
 
-        {moreFilteredQuery.map((job, i) => {
-          return <Job job={job} key={i} />;
-        })}
+        {this.state.loading ? (
+          <div className="d-flex justify-content-center align-items-center">
+            <Loader type="Circles" color="#f58b3b" height="100" width="100" />
+          </div>
+        ) : (
+          moreFilteredQuery.map((job, i) => {
+            return (
+              <LazyLoad key={i} height={270} offset={100}>
+                <Job job={job} key={i} />
+              </LazyLoad>
+            );
+          })
+        )}
+
         <Footer />
       </div>
     );
