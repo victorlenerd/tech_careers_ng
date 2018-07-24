@@ -94,9 +94,7 @@ class Jobs extends Component {
         ) : (
           moreFilteredQuery.map((job, i) => {
             return (
-              <LazyLoad key={i} height={270} offset={0}>
-                <Job job={job} key={i} />
-              </LazyLoad>
+              <Job job={job} key={i} />
             );
           })
         )}
