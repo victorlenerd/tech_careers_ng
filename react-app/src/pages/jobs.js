@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Loader from 'react-loader-spinner';
 import LazyLoad from 'react-lazy-load';
+import { CircleArrow as ScrollUpButton } from 'react-scroll-up-button';
 
 import Header from '../components/header';
 import NavTop from '../components/navTop';
@@ -21,13 +22,16 @@ class Jobs extends Component {
     this.fetchJobs();
   }
 
+  // get the filter parameter
   filterJobs = (name, value) => {
     this.setState({
       [name]: value
     });
   };
 
+  // Read the data from the database
   fetchJobs = () => {
+    console.log(this.state);
     db.collection('jobs')
       .orderBy('createdAt', 'desc')
       .get()
@@ -42,6 +46,9 @@ class Jobs extends Component {
   };
 
   render() {
+    // filter before rendering
+
+    // filter by job type
     const filteredQuery = this.state.jobs.filter((data) => {
       if (
         this.state.type === '' ||
@@ -52,6 +59,7 @@ class Jobs extends Component {
       return false;
     });
 
+    // filter by role
     const moreFilteredQuery = filteredQuery.filter((data) => {
       if (
         this.state.role === '' ||
@@ -77,13 +85,18 @@ class Jobs extends Component {
         ) : (
           moreFilteredQuery.map((job, i) => {
             return (
-              <LazyLoad key={i} height={270} offset={100}>
+              <LazyLoad key={i} height={270} offset={0}>
                 <Job job={job} key={i} />
               </LazyLoad>
             );
           })
         )}
-
+        <ScrollUpButton
+          style={{
+            border: '5px solid #f58b3b',
+            backgroundColor: '#f58b3b'
+          }}
+        />
         <Footer />
       </div>
     );

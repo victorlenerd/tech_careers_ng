@@ -1,8 +1,6 @@
 import React from 'react';
 
-import ppp from '../images/profile-picture-placeholder.png';
 import okwukwe from '../images/okwukwe.jpg';
-// import lola from '../images/lola.jpg';
 import lucky from '../images/lucky.jpg';
 import pelumi from '../images/pelumi.jpg';
 import img from '../images/img.jpg';

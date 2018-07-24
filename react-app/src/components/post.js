@@ -86,6 +86,7 @@ class Post extends Component {
         console.error('Error adding document: ', error);
       });
 
+    // clear the input
     e.target.reset();
   };
 
