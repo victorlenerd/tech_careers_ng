@@ -7,13 +7,13 @@ export default () => (
     <div className="container my-5 pb-5 main">
       <div className="row">
         <div className="col-md-10 offset-md-1 col-sm-12 about-div">
-          <p className="text-center about-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt.
+          <h1 className="text-center">TechCareers NG</h1>
+          <p className="text-center about-text about-info">
+            Tech is a popular industry to work in, partly because most tech jobs pay very well or the freedom it gives you to 
+            unleash your creativity and learn new things everyday. But where can you 
+            find jobs with great tech companies? Well, <strong>TechCareers NG</strong> is one place you can start. We put together the 
+            list of the  best tech job opportunities so you can quickly and easily find jobs in your city to apply to. There is always a job form
+            for every area of interests, experience level and technology stack.
           </p>
         </div>
       </div>
@@ -71,11 +71,11 @@ export default () => (
               <h5 className="card-title">
                 Lucky Amadi
                 <br />
-                <span className="about-color font-weight-bold">Backend</span>
+                <span className="about-color font-weight-bold">Developer</span>
               </h5>
               <p className="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                Lucky is a Software developer with keen interest on intuitive designs and building web platforms that serve daily needs
+                with cutting edge technologies.
               </p>
               <a
                 href="https://www.linkedin.com/in/lucky-amadi-40408b41/"

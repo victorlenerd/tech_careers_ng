@@ -37,7 +37,7 @@ class Apply extends Component {
                     <div className="col-md-10 offset-md-1 col-sm-12 form-div rounded">
                         <form
                         encType="multipart/form-data"
-                        action='http://localhost:5555/apply' 
+                        action='https://fast-anchorage-51274.herokuapp.com/apply' 
                         method='post'
                         
                             id="apply-form"
