@@ -8,6 +8,7 @@ export default (props) => {
     <div className="container mx-auto job-filter row p-2">
       <select
         name="type"
+        value={props.type}
         onChange={updateOption}
         className="col-sm-6 filter-control">
         <option value="">Select Type...</option>
@@ -18,6 +19,7 @@ export default (props) => {
       </select>
       <select
         name="role"
+        value={props.role}
         onChange={updateOption}
         className="col-sm-6 filter-control">
         <option value="">Select Role...</option>

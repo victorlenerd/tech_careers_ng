@@ -19,6 +19,16 @@ class Jobs extends Component {
   };
 
   componentWillMount() {
+    const { location: { state } } = this.props;
+    try {
+      const { type, role } = state;
+
+      this.setState({
+        type: (type) ? type : '',
+        role: (role) ? role : ''
+      });
+    } catch (err) {}
+
     this.fetchJobs();
   }
 
@@ -31,7 +41,6 @@ class Jobs extends Component {
 
   // Read the data from the database
   fetchJobs = () => {
-    console.log(this.state);
     db.collection('jobs')
       .orderBy('createdAt', 'desc')
       .get()
@@ -46,13 +55,13 @@ class Jobs extends Component {
   };
 
   render() {
-    // filter before rendering
+    const { role, type } = this.state; 
 
     // filter by job type
     const filteredQuery = this.state.jobs.filter((data) => {
       if (
-        this.state.type === '' ||
-        this.state.type.toLowerCase() === data.jobType.toLowerCase()
+        type === '' ||
+        type.toLowerCase() === data.jobType.toLowerCase()
       ) {
         return true;
       }
@@ -62,8 +71,8 @@ class Jobs extends Component {
     // filter by role
     const moreFilteredQuery = filteredQuery.filter((data) => {
       if (
-        this.state.role === '' ||
-        data.role.toLowerCase() === this.state.role.toLowerCase()
+        role === '' ||
+        data.role.toLowerCase() === role.toLowerCase()
       ) {
         return true;
       }
@@ -75,7 +84,7 @@ class Jobs extends Component {
         <Header />
         <NavTop title={'Available Jobs'} />
         <div className="container mb-5">
-          <JobFilter filterJobs={this.filterJobs} />
+          <JobFilter filterJobs={this.filterJobs} type={type} role={role} />
         </div>
 
         {this.state.loading ? (
