@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Loader from 'react-loader-spinner';
+import LazyLoad from 'react-lazy-load';
 
 import Header from '../components/header';
 import NavTop from '../components/navTop';
@@ -12,21 +14,17 @@ class Jobs extends Component {
     jobs: [],
     type: '',
     role: '',
-    experience: ''
+    loading: true
   };
 
   componentWillMount() {
     this.fetchJobs();
   }
 
-  filterJobs = (type, role, experience) => {
-    if (type || role || experience) {
-      this.setState({
-        type: type,
-        role: role,
-        experience: experience
-      });
-    }
+  filterJobs = (name, value) => {
+    this.setState({
+      [name]: value
+    });
   };
 
   fetchJobs = () => {
@@ -36,28 +34,33 @@ class Jobs extends Component {
       .then((docs) => {
         docs.forEach((doc) => {
           this.setState({
-            jobs: this.state.jobs.concat({ id: doc.id, ...doc.data() })
+            jobs: this.state.jobs.concat({ id: doc.id, ...doc.data() }),
+            loading: false
           });
         });
       });
   };
 
   render() {
-    console.log(this.state);
-
     const filteredQuery = this.state.jobs.filter((data) => {
-      if (this.state.type === '' && this.state.role === '') {
+      if (
+        this.state.type === '' ||
+        this.state.type.toLowerCase() === data.jobType.toLowerCase()
+      ) {
         return true;
       }
-      if (
-        data.jobType.toLowerCase() === this.state.type.toLowerCase() ||
-        data.role.toLowerCase() === this.state.role.toLowerCase()
-      )
-        return true;
       return false;
     });
 
-    console.log('Filtered Query', filteredQuery);
+    const moreFilteredQuery = filteredQuery.filter((data) => {
+      if (
+        this.state.role === '' ||
+        data.role.toLowerCase() === this.state.role.toLowerCase()
+      ) {
+        return true;
+      }
+      return false;
+    });
 
     return (
       <div className="jobs">
@@ -67,9 +70,20 @@ class Jobs extends Component {
           <JobFilter filterJobs={this.filterJobs} />
         </div>
 
-        {filteredQuery.map((job, i) => {
-          return <Job job={job} key={i} />;
-        })}
+        {this.state.loading ? (
+          <div className="d-flex justify-content-center align-items-center">
+            <Loader type="Circles" color="#f58b3b" height="100" width="100" />
+          </div>
+        ) : (
+          moreFilteredQuery.map((job, i) => {
+            return (
+              <LazyLoad key={i} height={270} offset={100}>
+                <Job job={job} key={i} />
+              </LazyLoad>
+            );
+          })
+        )}
+
         <Footer />
       </div>
     );

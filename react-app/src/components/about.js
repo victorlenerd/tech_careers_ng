@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ppp from '../images/profile-picture-placeholder.png';
+
 
 export default () => (
   <div>
@@ -23,19 +23,19 @@ export default () => (
       <div className="row">
         <div className="col-lg-3 col-md-6 pt-2 text-center mt-3">
           <div className="card shadow">
-            <img className="card-img-top" src={ppp} alt="Card" />
+            <img className="card-img-top" src="https://res.cloudinary.com/w3bh4ck/image/upload/v1532427692/techcareers/okwukwe.jpg" alt="Card" />
             <div className="card-body">
               <h5 className="card-title">
                 Okwukwe Ewurum <br />
                 <span className="about-color font-weight-bold">Team Lead</span>
               </h5>
-              <p className="card-text">
+              {/* <p className="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
-              </p>
+              </p> */}
               <a
                 href="https://www.linkedin.com/in/okwukwe-ewurum-1625a338/"
-                className="btn text-white">
+                className="btn btn-linkedin">
                 LinkedIn
               </a>
             </div>
@@ -44,20 +44,20 @@ export default () => (
 
         <div className="col-lg-3 col-md-6 pt-2 text-center mt-3">
           <div className="card shadow">
-            <img className="card-img-top" src={ppp} alt="Card" />
+            <img className="card-img-top" src="https://res.cloudinary.com/w3bh4ck/image/upload/v1532427693/techcareers/img.jpg" alt="Card" />
             <div className="card-body">
               <h5 className="card-title">
                 Temilola Kutelu
                 <br />
-                <span className="about-color font-weight-bold">Frontend</span>
+                <span className="about-color font-weight-bold">Developer</span>
               </h5>
-              <p className="card-text">
+              {/* <p className="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
-              </p>
+              </p> */}
               <a
                 href="https://www.linkedin.com/in/temilola-kutelu-714761a4/"
-                className="btn text-white">
+                className="btn btn-linkedin">
                 LinkedIn
               </a>
             </div>
@@ -66,7 +66,7 @@ export default () => (
 
         <div className="col-lg-3 col-md-6 pt-2 text-center mt-3">
           <div className="card shadow">
-            <img className="card-img-top" src={ppp} alt="Card" />
+            <img className="card-img-top" src="https://res.cloudinary.com/w3bh4ck/image/upload/v1532427691/techcareers/lucky.jpg" alt="Card" />
             <div className="card-body">
               <h5 className="card-title">
                 Lucky Amadi
@@ -74,12 +74,11 @@ export default () => (
                 <span className="about-color font-weight-bold">Developer</span>
               </h5>
               <p className="card-text">
-                Lucky is a Software developer with keen interest on intuitive designs and building web platforms that serve daily needs
-                with cutting edge technologies.
+                
               </p>
               <a
                 href="https://www.linkedin.com/in/lucky-amadi-40408b41/"
-                className="btn text-white">
+                className="btn btn-linkedin">
                 LinkedIn
               </a>
             </div>
@@ -87,20 +86,20 @@ export default () => (
         </div>
         <div className="col-lg-3 col-md-6 pt-2 text-center mt-3">
           <div className="card shadow">
-            <img className="card-img-top" src={ppp} alt="Card" />
+            <img className="card-img-top" src="https://res.cloudinary.com/w3bh4ck/image/upload/v1532427698/techcareers/pelumi.jpg" alt="Card" />
             <div className="card-body">
               <h5 className="card-title">
                 Pelumi Adebayo
                 <br />
-                <span className="about-color font-weight-bold">Frontend</span>
+                <span className="about-color font-weight-bold">Developer</span>
               </h5>
-              <p className="card-text">
+              {/* <p className="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
-              </p>
+              </p> */}
               <a
                 href="https://www.linkedin.com/in/adepelumi/"
-                className="btn text-white">
+                className="btn btn-linkedin">
                 LinkedIn
               </a>
             </div>
