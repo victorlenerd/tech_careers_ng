@@ -79,9 +79,9 @@ app.post('/apply', (req, res) => {
   
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-        return res.redirect('http://localhost:3000/apply?success=false');
+        return res.redirect('http://54.157.232.127:8080/apply?success=false');
       }
-      res.redirect('http://localhost:3000/apply?success=true');
+      res.redirect('http://54.157.232.127:8080/apply?success=true');
     });
   }
 
