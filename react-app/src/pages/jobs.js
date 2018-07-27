@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Loader from 'react-loader-spinner';
-import LazyLoad from 'react-lazy-load';
 import { CircleArrow as ScrollUpButton } from 'react-scroll-up-button';
 
 import Header from '../components/header';
@@ -19,13 +18,15 @@ class Jobs extends Component {
   };
 
   componentWillMount() {
-    const { location: { state } } = this.props;
+    const {
+      location: { state }
+    } = this.props;
     try {
       const { type, role } = state;
 
       this.setState({
-        type: (type) ? type : '',
-        role: (role) ? role : ''
+        type: type ? type : '',
+        role: role ? role : ''
       });
     } catch (err) {}
 
@@ -55,14 +56,11 @@ class Jobs extends Component {
   };
 
   render() {
-    const { role, type } = this.state; 
+    const { role, type } = this.state;
 
     // filter by job type
     const filteredQuery = this.state.jobs.filter((data) => {
-      if (
-        type === '' ||
-        type.toLowerCase() === data.jobType.toLowerCase()
-      ) {
+      if (type === '' || type.toLowerCase() === data.jobType.toLowerCase()) {
         return true;
       }
       return false;
@@ -70,10 +68,7 @@ class Jobs extends Component {
 
     // filter by role
     const moreFilteredQuery = filteredQuery.filter((data) => {
-      if (
-        role === '' ||
-        data.role.toLowerCase() === role.toLowerCase()
-      ) {
+      if (role === '' || data.role.toLowerCase() === role.toLowerCase()) {
         return true;
       }
       return false;
@@ -93,9 +88,7 @@ class Jobs extends Component {
           </div>
         ) : (
           moreFilteredQuery.map((job, i) => {
-            return (
-              <Job job={job} key={i} />
-            );
+            return <Job job={job} key={i} />;
           })
         )}
         <ScrollUpButton
