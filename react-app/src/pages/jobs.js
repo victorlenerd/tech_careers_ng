@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Loader from 'react-loader-spinner';
+import { CircleArrow as ScrollUpButton } from 'react-scroll-up-button';
 
 import Header from '../components/header';
 import NavTop from '../components/navTop';
@@ -12,23 +14,33 @@ class Jobs extends Component {
     jobs: [],
     type: '',
     role: '',
-    experience: ''
+    loading: true
   };
 
   componentWillMount() {
+    const {
+      location: { state }
+    } = this.props;
+    try {
+      const { type, role } = state;
+
+      this.setState({
+        type: type ? type : '',
+        role: role ? role : ''
+      });
+    } catch (err) {}
+
     this.fetchJobs();
   }
 
-  filterJobs = (type, role, experience) => {
-    if (type || role || experience) {
-      this.setState({
-        type: type,
-        role: role,
-        experience: experience
-      });
-    }
+  // get the filter parameter
+  filterJobs = (name, value) => {
+    this.setState({
+      [name]: value
+    });
   };
 
+  // Read the data from the database
   fetchJobs = () => {
     db.collection('jobs')
       .orderBy('createdAt', 'desc')
@@ -36,40 +48,55 @@ class Jobs extends Component {
       .then((docs) => {
         docs.forEach((doc) => {
           this.setState({
-            jobs: this.state.jobs.concat({ id: doc.id, ...doc.data() })
+            jobs: this.state.jobs.concat({ id: doc.id, ...doc.data() }),
+            loading: false
           });
         });
       });
   };
 
   render() {
-    console.log(this.state);
+    const { role, type } = this.state;
 
+    // filter by job type
     const filteredQuery = this.state.jobs.filter((data) => {
-      if (this.state.type === '' && this.state.role === '') {
+      if (type === '' || type.toLowerCase() === data.jobType.toLowerCase()) {
         return true;
       }
-      if (
-        data.jobType.toLowerCase() === this.state.type.toLowerCase() ||
-        data.role.toLowerCase() === this.state.role.toLowerCase()
-      )
-        return true;
       return false;
     });
 
-    console.log('Filtered Query', filteredQuery);
+    // filter by role
+    const moreFilteredQuery = filteredQuery.filter((data) => {
+      if (role === '' || data.role.toLowerCase() === role.toLowerCase()) {
+        return true;
+      }
+      return false;
+    });
 
     return (
       <div className="jobs">
         <Header />
         <NavTop title={'Available Jobs'} />
         <div className="container mb-5">
-          <JobFilter filterJobs={this.filterJobs} />
+          <JobFilter filterJobs={this.filterJobs} type={type} role={role} />
         </div>
 
-        {filteredQuery.map((job, i) => {
-          return <Job job={job} key={i} />;
-        })}
+        {this.state.loading ? (
+          <div className="d-flex justify-content-center align-items-center">
+            <Loader type="Circles" color="#f58b3b" height="100" width="100" />
+          </div>
+        ) : (
+          moreFilteredQuery.map((job, i) => {
+            return <Job job={job} key={i} />;
+          })
+        )}
+        <ScrollUpButton
+          style={{
+            border: '5px solid #f58b3b',
+            backgroundColor: '#f58b3b'
+          }}
+        />
         <Footer />
       </div>
     );

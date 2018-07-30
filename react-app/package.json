@@ -12,10 +12,16 @@
     "react": "^16.4.1",
     "react-chips": "^0.6.4",
     "react-dom": "^16.4.1",
+    "react-lazy-load": "^3.0.13",
+    "react-loader-spinner": "^2.1.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
+<<<<<<< HEAD
     "react-validation": "^3.0.7"
+=======
+    "react-scroll-up-button": "^1.6.0"
+>>>>>>> e5991017a2f01a7932f119e909fd5836200af806
   },
   "scripts": {
     "start": "react-scripts start",
