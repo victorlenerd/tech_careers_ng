@@ -9,7 +9,8 @@ class Apply extends Component {
         super(props);
         this.state = {
             displayMsg: false,
-            email: true
+            email: true,
+            subject: true
         }
     }
 
@@ -22,50 +23,11 @@ class Apply extends Component {
         if (newRouteParam[0] === "success" && newRouteParam[1] === "true") {
             this.setState({
                 displayMsg: true,
-                email: false
+                email: false,
+                subject: false
             });
         }
     }
-
-
-
-
-
-
-
-
-
-    // onHandleApply = (event) => {
-    //     event.preventDefault();
-    //     const to = this.props.location.state.job.email;
-    //     const jobTitle = this.props.location.state.job.jobTitle;
-    //     // const resume = event.target.resume;    
-    //     const fullname = event.target.fullname.value;
-    //     const phone = event.target.phone.value;
-    //     const email = event.target.email.value;
-    //     const coverLetter = event.target.coverletter.value;
-
-
-    //     let application = {fullname, phone, email, coverLetter, to, jobTitle};
-
-    //     let data = new FormData();
-    //     data.append("myjsonkey", JSON.stringify(application));
-
-    //   fetch('http://localhost:5555/apply', {
-    //     method: 'POST',
-    //     body: JSON.stringify(application),
-    //     headers: {
-    //       'Content-Type': 'application/json'
-    //     }
-    //   }).then(function(response) {
-    //         return response;
-    //       }).then(function(body) {
-    //         // console.log(body);
-    //       });
-
-    //   }
-
-
 
     render() {
         return (
@@ -83,7 +45,9 @@ class Apply extends Component {
                             {this.state.displayMsg && <div className="alert alert-success mt-3 text-center" role="alert">
                                 <h3>Application Submitted</h3>
                             </div>}
+                            {/* Hidden input value from the database */}
                             {this.state.email && <input type="hidden" id="employer-email" name="to" value={this.props.location.state.job.email} />}
+                            {this.state.subject && <input type="hidden" id="jobTitle" name="jobTitle" value={this.props.location.state.job.jobTitle} />}
                             <div className="form-row pt-4">
                                 <div className="form-group col-md-6 col-sm-12 pt-4">
                                     <label htmlFor="firstname">Full Name</label>
@@ -104,6 +68,7 @@ class Apply extends Component {
                                         id="phone"
                                         name="phone"
                                         required
+                                        autoComplete="off"
                                     />
                                 </div>
                             </div>
@@ -117,6 +82,7 @@ class Apply extends Component {
                                         id="Email"
                                         name="email"
                                         required
+                                        autoComplete="off"
                                     />
                                 </div>
                                 <div className="form-group col-md-6 col-sm-12  pt-4">
@@ -127,8 +93,7 @@ class Apply extends Component {
                                         id="cv"
                                         name="resume"
                                         accept=".pdf,.doc"
-                                    // onChange={this.uploadFile}
-                                    // style={background}
+                                        required
                                     />
                                 </div>
                             </div>
@@ -140,6 +105,7 @@ class Apply extends Component {
                                     id="coverletter"
                                     name="coverletter"
                                     required
+                                    autoComplete="off"
                                 />
                             </div>
 
@@ -148,7 +114,6 @@ class Apply extends Component {
                                     type="submit"
                                     id="apply-btn"
                                     className="large-button btn col-sm-4 offset-sm-8 my-3 text-white mx-auto"
-                                // onClick={this.onHandleApply}
                                 >
                                     Apply
                                 </button>

@@ -46,17 +46,12 @@ class Jobs extends Component {
     console.log(this.state);
 
     const filteredQuery = this.state.jobs.filter((data) => {
-      if (
-        this.state.type === '' &&
-        this.state.role === '' &&
-        this.state.experience === ''
-      ) {
+      if (this.state.type === '' && this.state.role === '') {
         return true;
       }
       if (
         data.jobType.toLowerCase() === this.state.type.toLowerCase() ||
-        data.role.toLowerCase() === this.state.role.toLowerCase() ||
-        data.experienceIntermediate === this.state.experience
+        data.role.toLowerCase() === this.state.role.toLowerCase()
       )
         return true;
       return false;

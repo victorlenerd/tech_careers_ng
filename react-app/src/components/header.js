@@ -24,24 +24,37 @@ export default () => (
         className="collapse navbar-collapse justify-content-end"
         id="navbarText">
         <ul className="navbar-nav">
-          <li className="nav-item mx-2 active">
-            <NavLink className="nav-NavLink text-white" to="/">
+          <li className="nav-item mx-2">
+            <NavLink
+              activeClassName="is-active"
+              exact={true}
+              className="text-white"
+              to="/">
               Home
               <span className="sr-only">(current)</span>
             </NavLink>
           </li>
           <li className="nav-item mx-2">
-            <NavLink className="nav-NavLink text-white" to="/jobs">
+            <NavLink
+              activeClassName="is-active"
+              className="text-white"
+              to="/jobs">
               Jobs
             </NavLink>
           </li>
           <li className="nav-item mx-2">
-            <NavLink className="nav-NavLink text-white" to="/post">
+            <NavLink
+              activeClassName="is-active"
+              className="text-white"
+              to="/post">
               Post Jobs
             </NavLink>
           </li>
           <li className="nav-item mx-2">
-            <NavLink className="nav-NavLink text-white" to="/about">
+            <NavLink
+              activeClassName="is-active"
+              className="text-white"
+              to="/about">
               About
             </NavLink>
           </li>
