@@ -20,8 +20,13 @@ body,
   box-shadow: 0 2px 20px 10px rgba(0, 0, 0, 0.17);
 }
 
+.navbar-scroll {
+  background-color: #f58b3b;
+  opacity: 1;
+}
+
 .navbar-toggler {
-  border: 2px solid #f58b3b;
+  border: 2px solid #ffff;
 }
 
 .navbar-toggler:focus {
@@ -29,7 +34,7 @@ body,
 }
 
 .navbar-toggler .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#ffa64d' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#ffffff' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
 .navbar-brand .brand-one {
