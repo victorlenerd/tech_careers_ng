@@ -6,6 +6,8 @@ const fileUpload = require('express-fileupload');
 const app = express();
 
 let port = process.env.PORT || 5555;
+let email = process.env.EMAIL;
+let pass = process.env.PASS;
 
 app.use(fileUpload());
 app.use(function(req, res, next) {
@@ -15,7 +17,6 @@ app.use(function(req, res, next) {
 });
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
 
 app.get('/', (req, res) => {
   res.send({ "success": true });
@@ -57,8 +58,8 @@ app.post('/apply', (req, res) => {
       port: 465,
       secure: true, 
       auth: {
-          user: 'techcareers@techbuzz.com.ng', 
-          pass: 'w3bh4ck'  
+          user: email, 
+          pass: pass
       },
       tls:{
         rejectUnauthorized:false
@@ -79,9 +80,9 @@ app.post('/apply', (req, res) => {
   
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-        return res.redirect('http://54.157.232.127:8080/apply?success=false');
+        return res.redirect('http://techcareers.ng/apply?success=false');
       }
-      res.redirect('http://54.157.232.127:8080/apply?success=true');
+      res.redirect('http://techcareers.ng/apply?success=true');
     });
   }
 
