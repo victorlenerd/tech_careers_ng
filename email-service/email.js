@@ -54,7 +54,7 @@ app.post('/apply', (req, res) => {
     `;
   
     let transporter = nodemailer.createTransport({
-      host: 'mail.techbuzz.com.ng',
+      host: 'smtp.gmail.com',
       port: 465,
       secure: true, 
       auth: {
