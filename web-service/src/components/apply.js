@@ -33,7 +33,7 @@ class Apply extends Component {
           <div className="col-md-10 offset-md-1 col-sm-12 form-div rounded">
             <form
               encType="multipart/form-data"
-              action="http://54.157.232.127:5555/apply"
+              action="http://18.223.102.113:5555/apply"
               method="post"
               id="apply-form"
               className="border-0 px-5">
