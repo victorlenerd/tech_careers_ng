@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "express": "^4.16.3",
     "express-fileupload": "^0.4.0",
     "firebase": "^5.2.0",
+    "forever": "^0.15.3",
     "mailgun-js": "^0.20.0",
     "moment": "^2.22.2",
     "nodemailer": "^4.6.7",
