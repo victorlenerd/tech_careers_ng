@@ -33,7 +33,7 @@ class Apply extends React.Component {
 					<div className="col-md-10 offset-md-1 col-sm-12 form-div rounded">
 						<form
 							encType="multipart/form-data"
-							action="https://techcareers.ng/apply"
+							action="/apply"
 							method="post"
 							id="apply-form"
 							className="border-0 px-5">

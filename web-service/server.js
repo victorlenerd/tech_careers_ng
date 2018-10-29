@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
 	res.sendFile(path.join(__dirname, "build/index.html"));
 });
 
-app.post("/sendemail", (req, res) => {
+app.post("/apply", (req, res) => {
 	let uploadFilename = req.files.resume.name;
 	let uploadData = req.files.resume.data;
 	let uploadEncoding = req.files.resume.encoding;
