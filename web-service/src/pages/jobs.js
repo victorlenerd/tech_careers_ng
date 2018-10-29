@@ -21,6 +21,7 @@ class Jobs extends Component {
     const {
       location: { state }
     } = this.props;
+
     try {
       const { type, role } = state;
 

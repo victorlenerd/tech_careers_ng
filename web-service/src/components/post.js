@@ -76,7 +76,6 @@ class Post extends Component {
         createdAt: new Date()
       })
       .then((docRef) => {
-        console.log('Document written with ID: ', docRef.id);
         this.setState({
           posted: true,
           chips: []
