@@ -19,7 +19,6 @@ app.use(bodyParser.urlencoded({
 	extended: false
 }));
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, "build/static")));
 app.use("/static", express.static(path.join(__dirname, "build/static")));
 
 app.get("/", (req, res) => {
