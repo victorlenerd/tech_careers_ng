@@ -4,6 +4,18 @@ const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 
+var admin = require('firebase-admin');
+
+var serviceAccount = require("./react-app-f6b64-firebase-adminsdk-mc9d0-931add5853.json");
+
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: 'https://react-app-f6b64.firebaseio.com'
+});
+
+var db = admin.firestore();
+db.settings({ timestampsInSnapshots: true });
+
 const app = express();
 
 let email = process.env.EMAIL;
@@ -21,8 +33,21 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.use("/static", express.static(path.join(__dirname, "build/static")));
 
-app.get("/", (req, res) => {
+app.get("(/jobs|/post|/about)", (req, res) => {
 	res.sendFile(path.join(__dirname, "build/index.html"));
+});
+
+app.post("/postjob", (req, res) => {
+	const body = req.body;
+
+	db.collection('jobs')
+	.add(body)
+	.then((docRef) => {
+		res.status(200).send({ status: true });
+	})
+	.catch((error) => {
+		res.status(401).send(error);
+	});
 });
 
 app.post("/apply", (req, res) => {

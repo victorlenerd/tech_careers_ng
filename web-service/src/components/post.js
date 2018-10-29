@@ -57,33 +57,41 @@ class Post extends Component {
     const location = e.target.location.value.trim().toLowerCase();
     const jobDescription = e.target.description.value.trim();
 
-    // Send the data to the database
-    db.collection('jobs')
-      .add({
-        companyName,
-        email,
-        jobDescription,
-        location,
-        role,
-        jobType,
-        jobTitle,
-        experienceJunior: this.state.experienceJunior,
-        experienceIntermediate: this.state.experienceIntermediate,
-        experienceSenior: this.state.experienceSenior,
-        maxPrice: this.state.maxPrice,
-        minPrice: this.state.minPrice,
-        chips: this.state.chips,
-        createdAt: new Date()
-      })
-      .then((docRef) => {
+    const body = {
+      companyName,
+      email,
+      jobDescription,
+      location,
+      role,
+      jobType,
+      jobTitle,
+      experienceJunior: this.state.experienceJunior,
+      experienceIntermediate: this.state.experienceIntermediate,
+      experienceSenior: this.state.experienceSenior,
+      maxPrice: this.state.maxPrice,
+      minPrice: this.state.minPrice,
+      chips: this.state.chips,
+      createdAt: Date.now()
+    };
+
+    fetch('/postjob', {
+      method: "POST",
+      body: JSON.stringify(body),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then((res) => res.json())
+    .then(({ status, error }) => {
+      if (status) {
         this.setState({
           posted: true,
           chips: []
         });
-      })
-      .catch((error) => {
+      } else {
         console.error('Error adding document: ', error);
-      });
+      }
+    })
 
     // clear the input
     e.target.reset();

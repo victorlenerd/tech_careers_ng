@@ -8,7 +8,7 @@ class Job extends Component {
     this.pushProps = this.pushProps.bind(this);
 
     this.state = {
-      start: moment(new Date(this.props.job.createdAt.seconds * 1000)),
+      start: moment(new Date(this.props.job.createdAt)),
       now: moment(new Date())
     };
   }
