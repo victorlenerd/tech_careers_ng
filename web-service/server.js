@@ -33,28 +33,24 @@ app.post("/sendemail", (req, res) => {
 
 	const mailText = (uploadFilename, uploadData, uploadEncoding) => {
 		const output = `
-		  <p>Job Application at Techcareers NG</p>
-		  <h3>Applicant's details</h3>
-		  <ul 
-			style="list-style-type: none; 
-			font-size: 1rem; 
-			font-weight: 600; 
-		  ">   
-			<li>Full Name:${req.body.fullname}</li>
-			<li>Phone Number: ${req.body.phone}</li>
-			<li>Email: ${req.body.email}</li>
-		  </ul>
-		  <h5>Cover Letter</h5>
-		  <div style=" max-width: 65%; border: 1px solid #f58b3b; margin: 2px">
-			  <p>
-				  ${req.body.coverletter}
-			  </p>
-		  </div>
-		  <div style="text-align: center">
-			<p>
-				Powered By &copy; <a href="http://www.nesa.makers.ng/" target="_blank">NESA By Makers</a>
-			</p>
-		  </div>
+			<p>Job Application at Techcareers NG</p>
+			<h3>Applicant's details</h3>
+			<ul
+				style="list-style-type: none; 
+				font-size: 1rem; 
+				font-weight: 600; 
+			">   
+				<li>Full Name:${req.body.fullname}</li>
+				<li>Phone Number: ${req.body.phone}</li>
+				<li>Email: ${req.body.email}</li>
+			</ul>
+			<h5>Cover Letter</h5>
+				<div style=" max-width: 65%; border: 1px solid #f58b3b; margin: 2px">
+				<p>${req.body.coverletter}</p>
+			</div>
+			<div style="text-align: center">
+				<p>Powered By &copy; <a href="http://www.nesa.makers.ng/" target="_blank">NESA By Makers</a></p>
+			</div>
 		`;
 
 		let transporter = nodemailer.createTransport({
