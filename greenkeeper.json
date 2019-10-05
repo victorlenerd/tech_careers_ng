@@ -1,0 +1,10 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "cron-service/package.json",
+        "web-service/package.json"
+      ]
+    }
+  }
+}
