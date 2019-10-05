@@ -9,8 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "firebase-admin": "^6.0.0",
+    "firebase-admin": "^8.6.0",
     "moment": "^2.22.2",
-    "node-cron": "^1.2.1"
+    "node-cron": "^2.0.3"
   }
 }
